@@ -646,31 +646,37 @@ export const initialValue = {
             id: 1,
             name: 'table 1',
             img: tableImg,
+            order: [],
         },
         {
             id: 2,
             name: 'table 2',
             img: tableImg,
+            order: [],
         },
         {
             id: 3,
             name: 'table 3',
             img: tableImg,
+            order: [],
         },
         {
             id: 4,
             name: 'table 4',
             img: tableImg,
+            order: [],
         },
         {
             id: 5,
             name: 'table 5',
             img: tableImg,
+            order: [],
         },
         {
             id: 6,
             name: 'table 6',
             img: tableImg,
+            order: [],
         },
     ],
     personnel: [
