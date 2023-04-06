@@ -1,3 +1,5 @@
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -67,6 +69,7 @@ code {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  margin: 0 -20px;
 }
 
 .categories_list-item {
@@ -77,4 +80,56 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 20px;
+}
+
+.categories_list-item a {
+  color: red;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.categories_list-item_img-01 {
+  background-image: url(../img/breakfast.jpg);
+}
+
+.categories_list-item_img-02 {
+  background-image: url(../img/potato_pancake.jpg);
+}
+
+.categories_list-item_img-03 {
+  background-image: url(../img/snacks.jpg);
+}
+
+.categories_list-item_img-04 {
+  background-image: url(../img/soup.png);
+}
+
+.categories_list-item_img-05 {
+  background-image: url(../img/salads.jpg);
+}
+
+.categories_list-item_img-06 {
+  background-image: url(../img/meat.jpeg);
+}
+
+.categories_list-item_img-07 {
+  background-image: url(../img/barbecue.jpg);
+}
+
+.categories_list-item_img-08 {
+  background-image: url(../img/varenics.jpg);
+}
+
+.error {
+  color: red;
+  display: none;
+}
+
+.show {
+  display: block;
 }

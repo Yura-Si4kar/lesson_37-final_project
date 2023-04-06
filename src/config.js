@@ -683,26 +683,39 @@ export const initialValue = {
         {
             id: 1,
             name: 'Анатолій',
+            salary: 10,
+            position: 'офіціант',
         },
         {
             id: 2,
             name: 'Олесандр',
+            salary: 10,
+            position: 'офіціант',
         },
         {
             id: 3,
             name: 'Сергій',
+            salary: 10,
+            position: 'офіціант',
         },
         {
             id: 4,
             name: 'Зіна',
+            salary: 10,
+            position: 'офіціант',
         },
         {
             id: 5,
             name: 'Ольга',
+            salary: 10,
+            position: 'офіціант',
         },
         {
             id: 6,
             name: 'Яна',
+            salary: 10,
+            position: 'офіціант',
         },
-    ]
+    ],
+    statistics: [],
 }

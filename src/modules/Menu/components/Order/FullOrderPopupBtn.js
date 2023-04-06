@@ -19,7 +19,7 @@ export default function OrderPopupBtn() {
 
   return (
     <>
-      {orderList.length &&
+      {orderList.length > 0 &&
         <Button
             onClick={handleClickOpen('paper')}
             variant='contained'

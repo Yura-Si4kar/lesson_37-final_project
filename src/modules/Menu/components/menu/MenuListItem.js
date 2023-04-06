@@ -58,10 +58,7 @@ export default function RecipeReviewCard({ type }) {
     <>
       <div className='dishes-list-box'>
         <Card className='dishes-list-item' sx={{ width: '100%' }}>
-          <CardHeader
-
-          >
-          </CardHeader>
+          <CardHeader></CardHeader>
           <CardMedia
             component="img"
             height="194"
