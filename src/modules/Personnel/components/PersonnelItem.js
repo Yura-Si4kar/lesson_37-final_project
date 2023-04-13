@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Card from 'react-bootstrap/Card';
-import pic from '../../../img/barbecue.jpg'
+import pic from '../../../img/unlogin-user-avatars.jpg'
 import { Box, Button, CardActions, CardContent, CardMedia, Collapse, Grid, Typography } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';

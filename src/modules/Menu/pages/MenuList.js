@@ -5,7 +5,7 @@ import { selectMenuList } from '../../../store/selectors/selectors';
 import RecipeReviewCard from '../components/menu/MenuListItem';
 import FullOrderPopupBtn from '../components/Order/FullOrderPopupBtn';
 
-export default function BestMenuList() { 
+export default function MenuList() { 
   const list = useSelector(selectMenuList);
 
   return (

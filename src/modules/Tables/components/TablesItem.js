@@ -6,6 +6,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectPersonnelList } from '../../../store/selectors/selectors';
 import { calculateTheExtractor, deleteTable } from '../../../store/actions/actions';
+import CheckWithdrawalWindow from './CheckWithdrawalWindow';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -18,9 +19,10 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function TablesItem({table}) {
+export default function TablesItem({ table }) {
     const [expanded, setExpanded] = useState(false);
     const personnel = useSelector(selectPersonnelList);
+    const [open, setOpen] = useState(false);
     const [waiter, setWaiter] = useState('');
     const dispatch = useDispatch()
 
@@ -35,18 +37,29 @@ export default function TablesItem({table}) {
     const getFullPrice = () => {
         let sum = table.order.map((item => item.list.map(element => element.price * element.numbers)));
 
-        return sum.flat().reduce((acc, val) => {return acc + val}, 0);
+        return sum.flat().reduce((acc, val) => { return acc + val }, 0);
     }
 
-    const calculateТheСlient = () => {
-        let orderInfo = {
+    const toCalculate = () => {
+        calculateТheСlient();
+        setOpen(true);
+    }
+
+    function getOrderInfo(){
+        return {
             table: table.name,
             waiter,
             order: table.order,
             sum: getFullPrice(),
         };
+    }
 
-        dispatch(calculateTheExtractor(orderInfo));
+    const calculateТheСlient = () => {
+        dispatch(calculateTheExtractor(getOrderInfo()));
+    }
+
+    const handleClose = () => {
+        setOpen(false);
     }
 
     function deleteItem(e) {
@@ -126,7 +139,7 @@ export default function TablesItem({table}) {
                                 </Box>
                                 <Box style={{ display: 'flex', justifyContent: 'space-between' }}>
                                     <Button variant='contained'>Видалити</Button>
-                                    <Button variant='contained' onClick={calculateТheСlient}>Розрахувати</Button>
+                                    <Button variant='contained' onClick={toCalculate}>Розрахувати</Button>
                                 </Box>
                             </Box>
                     </CardContent>
@@ -136,6 +149,7 @@ export default function TablesItem({table}) {
                 </Collapse>      
             </Card>
         </Grid>
+            <CheckWithdrawalWindow open={open} handleClose={handleClose} check={getOrderInfo()} />    
     </React.Fragment>
   )
 }

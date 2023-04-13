@@ -42,8 +42,8 @@ export default function reducer(state = initialValue, { type, payload }) {
 function addMenuItem(state, item) {
     return {
         ...state, 
-            orders: [...state.orders, {...item, id: Date.now()}]
-    }
+            orders: [...state.orders, {...item, id: Date.now()}]        
+    };
 }
 
 function removeOrderItem(state, id) {

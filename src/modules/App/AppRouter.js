@@ -7,7 +7,6 @@ import Сategories from '../Menu/pages/Сategories';
 import MenuListByCategories from '../Menu/components/MenuListByCategories';
 import Tables from '../Tables/Tables';
 import Personnel from '../Personnel/Personnel';
-import Service from '../Servise/Service';
 import Statistics from '../Statistics/Statistics';
 
 export default function AppRouter() {
@@ -24,7 +23,6 @@ export default function AppRouter() {
               </Route>
             <Route path='/tables' element={<Tables/>} />
             <Route path='/personnel' element={<Personnel/>} />
-            <Route path='/service' element={<Service/>} />
             <Route path='/statistics' element={<Statistics/>} />
         </Routes>
       </BrowserRouter>

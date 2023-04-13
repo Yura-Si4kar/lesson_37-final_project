@@ -13,3 +13,7 @@ export function selectTablesList(state) {
 export function selectPersonnelList(state) {
     return state.personnel;
 }
+
+export function selectStatisticsList(state) {
+    return state.statistics;
+}

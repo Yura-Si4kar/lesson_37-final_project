@@ -10,10 +10,11 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Badge, Box, Button, ButtonGroup, CardHeader, Rating } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { addMenuItemToOrderList } from '../../../../store/actions/actions';
+import { selectOrdersList } from '../../../../store/selectors/selectors';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -49,7 +50,7 @@ export default function RecipeReviewCard({ type }) {
   };
 
   const handleAddClick = () => {
-    dispatch(addMenuItemToOrderList({...type, numbers: count}))
+    dispatch(addMenuItemToOrderList({ ...type, numbers: count }));
   }
 
   const classes = useStyles();
@@ -95,9 +96,11 @@ export default function RecipeReviewCard({ type }) {
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
               <Typography paragraph>Вага: {type.weight} грам</Typography>
-              <Typography paragraph>
-                Склад: {type.composition}
-              </Typography>
+              {type.composition && 
+                <Typography paragraph>
+                  Склад: {type.composition}
+                </Typography>
+              }              
               <Box>
                 <Box style={{marginBottom: 20}}>
                   <Typography variant='span'>Кількість:</Typography>

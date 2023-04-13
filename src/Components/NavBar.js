@@ -88,7 +88,6 @@ function ResponsiveAppBar() {
                 <Link to='/' style={{ textAlign: "center" }}>Restaurant Menu</Link>
                 <Link to='/tables' style={{textAlign: "center"}}>Tables</Link>
                 <Link to='/personnel' style={{textAlign: "center"}}>Personnel</Link>
-                <Link to='/service' style={{textAlign: "center"}}>Service</Link>
                 <Link to='/statistics' style={{textAlign: "center"}}>Statistics</Link>
               </MenuItem>
             </Menu>
@@ -150,12 +149,6 @@ function ResponsiveAppBar() {
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 <Link style={{color: 'white', textDecoration: 'none'}} to='/personnel'>Personnel</Link>
-              </Button>
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                <Link style={{color: 'white', textDecoration: 'none'}} to='/service'>Service</Link>
               </Button>
               <Button
                 onClick={handleCloseNavMenu}

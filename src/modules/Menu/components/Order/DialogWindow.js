@@ -11,36 +11,36 @@ const Demo = styled('div')(({ theme }) => ({
 }));
 
 export default function FullOrderPopupBtn({ open, handleClose }) {
-  const list = useSelector(selectOrdersList);
-  const tables = useSelector(selectTablesList);
-  const dispatch = useDispatch();
+   const list = useSelector(selectOrdersList);
+   const tables = useSelector(selectTablesList);
+   const dispatch = useDispatch();
   
-  const [table, setTable] = useState('');
+   const [table, setTable] = useState('');
 
-  const getOrdersSum = (list) => {
-    return list.reduce((acc, item) => acc + (item.price * item.numbers), 0);
-  }
+   const getOrdersSum = (list) => {
+     return list.reduce((acc, item) => acc + (item.price * item.numbers), 0);
+   }
 
-  const handleChange = (event) => {
-      setTable(event.target.value);
-  };
+   const handleChange = (event) => {
+       setTable(event.target.value);
+   };
 
-  function onSubmit() {
-    let order = {
-      id: Date.now(),
-      list,
-      name: table,
-    }
+   function onSubmit() {
+     let order = {
+       id: Date.now(),
+        list,
+       name: table,
+     }
 
-    dispatch(tieTheOrderToTheTable(order));
-    dispatch(clearOrdersList())
-    handleClose();
-  }
+     dispatch(tieTheOrderToTheTable(order));
+     dispatch(clearOrdersList())
+     handleClose();
+   }
 
-  function onCansel() {
-    dispatch(clearOrdersList())
-    handleClose();
-  }
+   function onCansel() {
+     dispatch(clearOrdersList())
+     handleClose();
+   }
 
   return (
     <Dialog
