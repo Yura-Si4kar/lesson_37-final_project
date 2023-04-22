@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container } from '@mui/system';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectMenuList } from '../../../store/selectors/selectors';
 import RecipeReviewCard from '../components/menu/MenuListItem';
 import FullOrderPopupBtn from '../components/Order/FullOrderPopupBtn';
+import { useParams } from 'react-router-dom';
+import { getMenuList } from '../../../store/actions/servicesActions';
 
 export default function MenuList() { 
+  const dispatch = useDispatch();
+  const params = useParams();
   const list = useSelector(selectMenuList);
+
+  useEffect(() => {
+    dispatch(getMenuList(params.item))
+  }, [dispatch, params.item])  
 
   return (
     <>

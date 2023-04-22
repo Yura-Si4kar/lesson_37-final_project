@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectOrdersList, selectTablesList } from '../../../../store/selectors/selectors';
 import { styled } from '@mui/material/styles';
 import OrderListItem from './OrderListItem';
-import { clearOrdersList, tieTheOrderToTheTable } from '../../../../store/actions/actions';
+import { clearOrdersList, tieTheOrderToTheTable } from '../../../../store/actions/servicesActions';
 
 const Demo = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,

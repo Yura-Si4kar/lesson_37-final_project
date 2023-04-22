@@ -1,1 +1,0 @@
-export const menuApi = 'http://localhost:3001/breads';

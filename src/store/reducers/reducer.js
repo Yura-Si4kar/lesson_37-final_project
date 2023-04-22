@@ -1,19 +1,24 @@
 import { initialValue } from "../../config";
+import { ADD_EMPLOYEE, DELETE_EMPLOYEE, SET_PERSONELL_LIST } from "../actions/personnelActions";
 import {
-    ADD_EMPLOYEE,
     ADD_MENU_ITEM,
-    ADD_TABLE,
     CALCULATE_THE_CLIENT,
     CLEAR_ORDER_LIST,
-    DELETE_EMPLOYEE,
-    DELETE_TABLE,
     OVERWRITE_ORDER_ITEM,
     REMOVE_ORDER_ITEM,
+    SET_MENU_LIST,
     TIE_THE_ORDER_TO_THE_TABLE
-} from "../actions/actions";
+} from "../actions/servicesActions";
+import { ADD_TABLE, DELETE_TABLE, SET_TABLES_LIST } from "../actions/tablesActions";
 
 export default function reducer(state = initialValue, { type, payload }) {
     switch (type) {
+        case SET_MENU_LIST:
+            return {...state, list: payload};
+        case SET_TABLES_LIST:
+            return {...state, tables: payload};
+        case SET_PERSONELL_LIST:
+            return {...state, personnel: payload};
         case ADD_MENU_ITEM:
             return addMenuItem(state, payload);
         case REMOVE_ORDER_ITEM:

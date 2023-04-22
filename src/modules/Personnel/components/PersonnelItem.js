@@ -5,7 +5,7 @@ import { Box, Button, CardActions, CardContent, CardMedia, Collapse, Grid, Typog
 import { ExpandMore } from '@mui/icons-material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useDispatch } from 'react-redux';
-import { deleteEmployee } from '../../../store/actions/actions';
+import { fireAnEmployee } from '../../../store/actions/personnelActions';
 
 export default function PersonnelItem({ person }) {
     const dispatch = useDispatch();
@@ -17,7 +17,7 @@ export default function PersonnelItem({ person }) {
 
     function deleteWorkerCard(e) {
         e.stopPropagation();
-        dispatch(deleteEmployee(person.id));
+        dispatch(fireAnEmployee(person.id));
     }
     
     return (

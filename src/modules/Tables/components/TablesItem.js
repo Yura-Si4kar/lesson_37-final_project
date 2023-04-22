@@ -5,8 +5,10 @@ import IconButton from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectPersonnelList } from '../../../store/selectors/selectors';
-import { calculateTheExtractor, deleteTable } from '../../../store/actions/actions';
+import { calculateTheExtractor } from '../../../store/actions/servicesActions';
 import CheckWithdrawalWindow from './CheckWithdrawalWindow';
+import pic from '../../../img/tables/table.jpg';
+import { deleteTable } from '../../../store/actions/tablesActions';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -74,7 +76,7 @@ export default function TablesItem({ table }) {
                 <CardMedia
                     component='img'
                     height='200'
-                    image={table.img}
+                    image={pic}
                     alt={`table` + table.id}    
                     />
                 <CardContent>

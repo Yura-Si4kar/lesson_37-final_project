@@ -16,8 +16,8 @@ export default function AppRouter() {
           <ResponsiveAppBar/>
             <Routes>
               <Route path='/' element={<App />}>
-                <Route index element={<Navigate to="/dishes" />}></Route>
-                <Route path='dishes' element={<MenuList />}/>
+                <Route index element={<Navigate to="/foods" />}></Route>
+                <Route path=':item' element={<MenuList />}/>
                 <Route index path='categories' element={<Сategories />}/>
                   <Route path='categories/:item' element={<MenuListByCategories />} />
               </Route>

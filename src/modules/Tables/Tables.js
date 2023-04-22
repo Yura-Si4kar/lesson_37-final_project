@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Container, Grid } from '@mui/material';
 import { selectTablesList } from '../../store/selectors/selectors';
 import TablesItem from './components/TablesItem';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import TableDialogForm from './components/TableDialogForm';
+import { getTableList } from '../../store/actions/tablesActions';
 
 export default function Tables() {
+  const dispatch = useDispatch();
   const tables = useSelector(selectTablesList);
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
   }
+
+  useEffect(() => {
+    dispatch(getTableList('tables'));
+  }, [dispatch])
 
   const handleClose = () => {
     setOpen(false)

@@ -1,13 +1,19 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { selectPersonnelList } from '../../store/selectors/selectors'
 import { Button, Container, Grid } from '@mui/material';
 import PersonnelItem from './components/PersonnelItem';
 import PersonnelDialogForm from './components/PersonnelDialogForm';
+import { getPersonnelList } from '../../store/actions/personnelActions';
 
 export default function Personnel() {
+  const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
   const personnel = useSelector(selectPersonnelList);
-  const [open, setOpen] = React.useState(false);
+  
+  useEffect(() => {
+    dispatch(getPersonnelList('personnel'));
+  }, [dispatch])  
   
   const handleClickOpen = () => {
     setOpen(true);

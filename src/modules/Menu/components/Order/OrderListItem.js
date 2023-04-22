@@ -4,7 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useDispatch } from 'react-redux';
-import { overwriteOrderListItem, removeOrderItem } from '../../../../store/actions/actions';
+import { overwriteOrderListItem, removeOrderItem } from '../../../../store/actions/servicesActions';
 
 export default function OrderListItem({ item }) {
     const dispatch = useDispatch();
@@ -43,7 +43,7 @@ export default function OrderListItem({ item }) {
                 </Avatar>
             </ListItemAvatar>
             <ListItemText
-                primary={item.title}
+                primary={item.name}
             />
             <ListItemText
                 primary={`${price} $`}

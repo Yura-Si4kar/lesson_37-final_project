@@ -6,8 +6,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { addEmployee } from '../../../store/actions/actions';
 import { Typography } from '@mui/material';
+import { addUser } from '../../../store/actions/personnelActions';
 
 const INITIAL_VALUE = {
   name: '',
@@ -43,9 +43,8 @@ export default function PersonnelDialogForm({ open, handleClose }) {
       })
     }
     delete formState.error;
-    dispatch(addEmployee(formState));
+    dispatch(addUser(formState));
     setFormState(INITIAL_VALUE);
-    console.log(formState);
     handleClose();
   }
 

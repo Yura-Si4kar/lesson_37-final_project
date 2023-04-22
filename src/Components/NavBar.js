@@ -132,7 +132,7 @@ function ResponsiveAppBar() {
               }}
             >
               <MenuItem onClick={handleClose}>
-                <Link style={{color: 'blue', textDecoration: 'none'}} to='/dishes'>Меню</Link>
+                <Link style={{color: 'blue', textDecoration: 'none'}} to='/foods'>Меню</Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
                 <Link style={{color: 'blue', textDecoration: 'none'}} to='/categories'>За категоріями</Link>

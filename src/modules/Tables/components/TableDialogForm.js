@@ -6,8 +6,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { addTable } from '../../../store/actions/actions';
 import { Typography } from '@mui/material';
+import { addItem } from '../../../store/actions/tablesActions';
 
 const INITIAL_VALUE = {
   name: '',
@@ -23,6 +23,8 @@ export default function TableDialogForm({ open, handleClose }) {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value,
+      img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fdesign-homes.ru%2Fkomnaty%2Fkukhnya-i-stolovaya%2Fservirovka-stola&psig=AOvVaw1DeIH0KCyJOfppjCfO7wo2&ust=1681477956988000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJjyz9b3pv4CFQAAAAAdAAAAABAI',
+      order: [],
     })
   }
 
@@ -39,7 +41,7 @@ export default function TableDialogForm({ open, handleClose }) {
       })
     }
     delete formState.error;
-    dispatch(addTable(formState));
+    dispatch(addItem(formState));
     setFormState(INITIAL_VALUE);
     console.log(formState);
     handleClose();
