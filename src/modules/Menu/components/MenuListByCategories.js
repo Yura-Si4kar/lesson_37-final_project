@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import RecipeReviewCard from './menu/MenuListItem';
 import { selectMenuList } from '../../../store/selectors/selectors';
 import { getMenuList } from '../../../store/actions/servicesActions';
+import OrderPopupBtn from './Order/FullOrderPopupBtn';
 
 export default function MenuListByCategories() {
   const dispatch = useDispatch();
@@ -16,13 +17,16 @@ export default function MenuListByCategories() {
   }, [dispatch, params.item])   
 
   return (
-    <Container maxWidth='xl'>
-      <Box>
-        <Typography variant='h1' style={{fontSize: '25px'}}>{params.item.toLocaleUpperCase()}</Typography>
-      </Box>
-      <div className='dishes-list'>
-        {list.map((item) => <RecipeReviewCard key={item.id} type={item} />)}
-      </div>
-    </Container>
+    <>
+      <Container maxWidth='xl'>
+        <Box>
+          <Typography variant='h1' style={{fontSize: '25px'}}>{params.item.toLocaleUpperCase()}</Typography>
+        </Box>
+        <div className='dishes-list'>
+          {list.map((item) => <RecipeReviewCard key={item.id} type={item} />)}
+        </div>
+        <OrderPopupBtn/>
+      </Container>
+    </>
   )
 }

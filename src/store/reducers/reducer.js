@@ -4,9 +4,11 @@ import {
     ADD_MENU_ITEM,
     CALCULATE_THE_CLIENT,
     CLEAR_ORDER_LIST,
+    CLEAR_ORDER_LIST_FROM_THE_TABLE,
     OVERWRITE_ORDER_ITEM,
     REMOVE_ORDER_ITEM,
     SET_MENU_LIST,
+    SET_SALES_LIST,
     TIE_THE_ORDER_TO_THE_TABLE
 } from "../actions/servicesActions";
 import { ADD_TABLE, DELETE_TABLE, SET_TABLES_LIST } from "../actions/tablesActions";
@@ -19,6 +21,8 @@ export default function reducer(state = initialValue, { type, payload }) {
             return {...state, tables: payload};
         case SET_PERSONELL_LIST:
             return {...state, personnel: payload};
+        case SET_SALES_LIST:
+            return {...state, sales: payload};
         case ADD_MENU_ITEM:
             return addMenuItem(state, payload);
         case REMOVE_ORDER_ITEM:
@@ -27,6 +31,8 @@ export default function reducer(state = initialValue, { type, payload }) {
             return overwriteItem(state, payload);
         case TIE_THE_ORDER_TO_THE_TABLE:
             return addOrderToTheTable(state, payload);
+        case CLEAR_ORDER_LIST_FROM_THE_TABLE:
+            return clearOrderFromTheTable(state, payload);
         case CLEAR_ORDER_LIST:
             return clearOrders(state, payload);
         case CALCULATE_THE_CLIENT:
@@ -47,7 +53,7 @@ export default function reducer(state = initialValue, { type, payload }) {
 function addMenuItem(state, item) {
     return {
         ...state, 
-            orders: [...state.orders, {...item, id: Date.now()}]        
+            orders: [...state.orders, {...item, id: Date.now()}]
     };
 }
 
@@ -68,7 +74,17 @@ function overwriteItem(state, item) {
 function addOrderToTheTable(state, item) {
     return {
         ...state,
-            tables: state.tables.map((table) => table.name === item.name ? { ...table, order: [...table.order, item] } : table),
+        tables: state.tables.map((table) =>
+            table.name === item.name
+                ? { ...table, order: [...table.order, item] }
+                : table),
+    }
+}
+
+function clearOrderFromTheTable(state, id) {
+    return {
+        ...state,
+            tables: state.tables.map((table) => table.id === id ? { ...table, order: [] } : table),
     }
 }
 
@@ -82,7 +98,7 @@ function clearOrders(state) {
 function calculate(state, payload) {
     return {
         ...state,
-            statistics: [...state.statistics, {...payload, id: Date.now()}]
+            sales: [...state.sales, {...payload, id: Date.now()}]
     }
 }
 
@@ -103,7 +119,7 @@ function removeWorker(state, id) {
 function addTable(state, table) {
     return {
         ...state,
-            tables: [...state.tables, {...table, id: Date.now(), order: []}]
+            tables: [...state.tables, {...table, order: []}]
     }
 }
 

@@ -31,7 +31,7 @@ export const addUser = (user) => (dispatch, getState) => {
 
 export const fireAnEmployee = (id) => (dispatch, getState) => {
     dispatch(setPersonnelListLoading(true));
-    removeEmploeeFromTheDataList(id).then((data) => dispatch(deleteEmployee(data)))
+    removeEmploeeFromTheDataList(id).then(() => dispatch(deleteEmployee(id)))
         .finally(() => {
             dispatch(setPersonnelListLoading(false));
     })

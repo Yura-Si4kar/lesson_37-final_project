@@ -5,6 +5,7 @@ import TablesItem from './components/TablesItem';
 import { useDispatch, useSelector } from 'react-redux';
 import TableDialogForm from './components/TableDialogForm';
 import { getTableList } from '../../store/actions/tablesActions';
+import { getPersonnelList } from '../../store/actions/personnelActions';
 
 export default function Tables() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ export default function Tables() {
 
   useEffect(() => {
     dispatch(getTableList('tables'));
+    dispatch(getPersonnelList('personnel'));
   }, [dispatch])
 
   const handleClose = () => {

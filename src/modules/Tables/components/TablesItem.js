@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectPersonnelList } from '../../../store/selectors/selectors';
-import { calculateTheExtractor } from '../../../store/actions/servicesActions';
+import { calculateTheExtractor, clearTableOrders, saveSalesDate } from '../../../store/actions/servicesActions';
 import CheckWithdrawalWindow from './CheckWithdrawalWindow';
 import pic from '../../../img/tables/table.jpg';
 import { deleteTable } from '../../../store/actions/tablesActions';
@@ -37,7 +37,7 @@ export default function TablesItem({ table }) {
     };
     
     const getFullPrice = () => {
-        let sum = table.order.map((item => item.list.map(element => element.price * element.numbers)));
+        let sum = table.order.map((element) => element.price * element.numbers);
 
         return sum.flat().reduce((acc, val) => { return acc + val }, 0);
     }
@@ -47,7 +47,7 @@ export default function TablesItem({ table }) {
         setOpen(true);
     }
 
-    function getOrderInfo(){
+    function getOrderInfo() {
         return {
             table: table.name,
             waiter,
@@ -58,10 +58,12 @@ export default function TablesItem({ table }) {
 
     const calculateТheСlient = () => {
         dispatch(calculateTheExtractor(getOrderInfo()));
+        dispatch(saveSalesDate(getOrderInfo()));
     }
-
+    
     const handleClose = () => {
         setOpen(false);
+        dispatch(clearTableOrders(table.id, []));
     }
 
     function deleteItem(e) {
@@ -122,15 +124,17 @@ export default function TablesItem({ table }) {
                             </Box>
                             <Box>
                                 Замовлення:
-                                {table.order.map((item) => item.list.map((element) =>
-                                    <Typography
-                                        style={{ display: 'flex', justifyContent: 'space-between' }}
-                                        key={element.id}
-                                        paragraph
-                                    >
-                                        <span>{element.title}:</span>
-                                        <span>{element.numbers} шт.</span>
-                                    </Typography>))
+                                {table.order.map((element) =>
+                                    (
+                                        <Typography
+                                            style={{ display: 'flex', justifyContent: 'space-between' }}
+                                            key={element.id}
+                                            paragraph
+                                        >
+                                            <span>{element.name}:</span>
+                                            <span>{element.numbers} шт.</span>
+                                        </Typography>
+                                    ))
                                 }
                             </Box>
                             <Box>
@@ -140,7 +144,7 @@ export default function TablesItem({ table }) {
                                     </Typography>
                                 </Box>
                                 <Box style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                    <Button variant='contained'>Видалити</Button>
+                                    <Button variant='contained' onClick={handleClose}>Видалити</Button>
                                     <Button variant='contained' onClick={toCalculate}>Розрахувати</Button>
                                 </Box>
                             </Box>

@@ -11,10 +11,9 @@ export default function CheckWithdrawalWindow({ open, handleClose, check }) {
         </DialogTitle>  
         <DialogContent style={{width: 500}}>
             <Box>
-                {check.order.map((item) =>
-                    item.list.map((element) =>
+                  {check.order.map((element) => (
                         <Typography key={element.id} paragraph style={{display: 'flex', justifyContent: 'space-between'}}>
-                            <Typography variant='span'>{element.title}</Typography>
+                            <Typography variant='span'>{element.name}</Typography>
                             <Typography variant='span'>{element.numbers} шт.</Typography>
                             <Typography variant='span'>{element.numbers * element.price} $</Typography>
                         </Typography>

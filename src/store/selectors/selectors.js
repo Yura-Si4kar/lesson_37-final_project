@@ -15,5 +15,5 @@ export function selectPersonnelList(state) {
 }
 
 export function selectStatisticsList(state) {
-    return state.statistics;
+    return state.sales;
 }

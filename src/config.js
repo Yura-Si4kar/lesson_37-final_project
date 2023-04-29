@@ -6,5 +6,5 @@ export const initialValue = {
     orders: [],
     tables: [],
     personnel: [],
-    statistics: [],
+    sales: [],
 }

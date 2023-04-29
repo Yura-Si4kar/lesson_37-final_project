@@ -43,7 +43,6 @@ export default function TableDialogForm({ open, handleClose }) {
     delete formState.error;
     dispatch(addItem(formState));
     setFormState(INITIAL_VALUE);
-    console.log(formState);
     handleClose();
   }
 

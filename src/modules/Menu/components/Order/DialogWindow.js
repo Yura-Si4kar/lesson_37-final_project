@@ -4,37 +4,38 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectOrdersList, selectTablesList } from '../../../../store/selectors/selectors';
 import { styled } from '@mui/material/styles';
 import OrderListItem from './OrderListItem';
-import { clearOrdersList, tieTheOrderToTheTable } from '../../../../store/actions/servicesActions';
+import { clearOrdersList, tieOrder } from '../../../../store/actions/servicesActions';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Demo = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
 }));
 
 export default function FullOrderPopupBtn({ open, handleClose }) {
-   const list = useSelector(selectOrdersList);
-   const tables = useSelector(selectTablesList);
-   const dispatch = useDispatch();
+  const list = useSelector(selectOrdersList);
+  const tables = useSelector(selectTablesList);
+  const dispatch = useDispatch();
   
-   const [table, setTable] = useState('');
+  const [table, setTable] = useState('');
 
-   const getOrdersSum = (list) => {
-     return list.reduce((acc, item) => acc + (item.price * item.numbers), 0);
-   }
+  const getOrdersSum = (list) => {
+    return list.reduce((acc, item) => acc + (item.price * item.numbers), 0);
+  }
 
-   const handleChange = (event) => {
-       setTable(event.target.value);
-   };
+  const handleChange = (event) => {
+      setTable(event.target.value);
+  };
 
-   function onSubmit() {
-     let order = {
-       id: Date.now(),
-        list,
-       name: table,
-     }
+  function onSubmit() {
+    let order = {
+      id: Date.now(),
+      list,
+      name: table,
+    }
 
-     dispatch(tieTheOrderToTheTable(order));
-     dispatch(clearOrdersList())
-     handleClose();
+    dispatch(tieOrder(order))
+    dispatch(clearOrdersList())
+    handleClose();
    }
 
    function onCansel() {
@@ -47,7 +48,10 @@ export default function FullOrderPopupBtn({ open, handleClose }) {
       open={open}
       style={{position: 'fixed', bottom: 50, right: 28}}
       >
-      <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">Замовлення</DialogTitle>
+      <DialogTitle style={{ display: 'flex', justifyContent: 'space-between' }} id="draggable-dialog-title">
+        <Typography variant='span'>Замовлення</Typography>
+        <CloseIcon style={{ cursor: 'pointer' }} onClick={handleClose} />
+      </DialogTitle>
       <DialogContent>
         <Box sx={{ flexGrow: 1, width: 550}}>
           <Grid container spacing={2}>
