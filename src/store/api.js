@@ -21,7 +21,7 @@ export function addEmploeeToTheDataList(user) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(user),
-    })
+    }).then((res) => res.json())
 }
 
 export function removeEmploeeFromTheDataList(id) {
@@ -37,7 +37,7 @@ export function addTableToTheDataList(item) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(item),
-    })
+    }).then((res) => res.json())
 }
 
 export function removeTableFromTheDataList(id) {

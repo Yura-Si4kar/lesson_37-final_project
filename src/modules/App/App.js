@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getTableList } from '../../store/actions/tablesActions';
-// import AuthProvider from '../../auth';
+// import Loading from '../../Components/Loading/Loading';
 
 const darkTheme = createTheme({ palette: { mode: 'dark' } });
 
@@ -13,11 +13,11 @@ export default function App() {
 
   useEffect(() => {
     dispatch(getTableList('tables'));
-  }, [dispatch])  
- 
+  }, [dispatch]);
+
   return (
     <>
-      {/* <AuthProvider></AuthProvider> */}
+      {/* <Loading/> */}
       <Grid container spacing={12}>
         {[darkTheme].map((theme, index) => (
           <Grid item xs={12} key={index}>

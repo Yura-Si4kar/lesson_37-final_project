@@ -8003,6 +8003,12 @@
       "name": "Яна",
       "salary": 10,
       "position": "офіціант"
+    },
+    {
+      "name": "Андрій",
+      "position": "адмін",
+      "salary": "15",
+      "id": 7
     }
   ],
   "sales": [
@@ -8561,6 +8567,82 @@
       ],
       "sum": 1090,
       "id": 20
+    },
+    {
+      "table": "table 2",
+      "waiter": "Анатолій",
+      "order": [
+        {
+          "id": 1682775120495,
+          "type": "our-foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/66752/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Kings BBQ",
+          "dsc": "Carolina BBQ Oink Sampler",
+          "price": 89,
+          "rate": 4,
+          "country": "Kinston, NC",
+          "numbers": 1
+        }
+      ],
+      "sum": 89,
+      "id": 21
+    },
+    {
+      "table": "table 1",
+      "waiter": "Анатолій",
+      "order": [
+        {
+          "id": 1682775435209,
+          "type": "our-foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/66752/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Kings BBQ",
+          "dsc": "Carolina BBQ Oink Sampler",
+          "price": 89,
+          "rate": 4,
+          "country": "Kinston, NC",
+          "numbers": 1
+        }
+      ],
+      "sum": 89,
+      "id": 22
+    },
+    {
+      "table": "table 1",
+      "waiter": "Сергій",
+      "order": [
+        {
+          "id": 1682775602420,
+          "type": "our-foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/66752/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Kings BBQ",
+          "dsc": "Carolina BBQ Oink Sampler",
+          "price": 89,
+          "rate": 4,
+          "country": "Kinston, NC",
+          "numbers": 1
+        }
+      ],
+      "sum": 89,
+      "id": 23
+    },
+    {
+      "table": "table 3",
+      "waiter": "Андрій",
+      "order": [
+        {
+          "id": 1682785855114,
+          "type": "sandwiches",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/131830/plain-cheesecake.de3d6cefd530477dc04769774752448e.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Junior's Cheesecake",
+          "dsc": "Meet the Reubens Sandwich Kit for 4-6",
+          "price": 89,
+          "rate": 5,
+          "country": "Brooklyn, NY",
+          "numbers": 4
+        }
+      ],
+      "sum": 356,
+      "id": 24
     }
   ]
 }

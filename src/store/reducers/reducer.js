@@ -7,6 +7,7 @@ import {
     CLEAR_ORDER_LIST_FROM_THE_TABLE,
     OVERWRITE_ORDER_ITEM,
     REMOVE_ORDER_ITEM,
+    SET_LOADING,
     SET_MENU_LIST,
     SET_SALES_LIST,
     TIE_THE_ORDER_TO_THE_TABLE
@@ -15,6 +16,8 @@ import { ADD_TABLE, DELETE_TABLE, SET_TABLES_LIST } from "../actions/tablesActio
 
 export default function reducer(state = initialValue, { type, payload }) {
     switch (type) {
+        case SET_LOADING:
+            return {...state, isLoading: payload}
         case SET_MENU_LIST:
             return {...state, list: payload};
         case SET_TABLES_LIST:
@@ -105,7 +108,7 @@ function calculate(state, payload) {
 function addWorker(state, payload) {
     return {
         ...state,
-            personnel: [...state.personnel, {...payload, id: Date.now()}]
+            personnel: [...state.personnel, payload]
     }
 }
 

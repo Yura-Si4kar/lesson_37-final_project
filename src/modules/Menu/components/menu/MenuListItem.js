@@ -94,12 +94,9 @@ export default function RecipeReviewCard({ type }) {
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <Typography paragraph>Вага:
-                {/* {type.weight} */}
-                грам</Typography>
-              {type.composition && 
+              {type.dsc && 
                 <Typography paragraph>
-                  Склад: {type.dsc}
+                  Опис: {type.dsc}
                 </Typography>
               }              
               <Box>

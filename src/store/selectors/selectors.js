@@ -1,3 +1,7 @@
+export function selectLoading(state) {
+    return state.isLoading;
+}
+
 export function selectMenuList(state) {
     return state.list;
 }
