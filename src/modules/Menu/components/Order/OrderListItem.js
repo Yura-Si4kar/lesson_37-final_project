@@ -3,36 +3,28 @@ import { Avatar, Badge, Box, Button, ButtonGroup, IconButton, ListItem, ListItem
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { useDispatch } from 'react-redux';
-import { overwriteOrderListItem, removeOrderItem } from '../../../../store/actions/servicesActions';
 
-export default function OrderListItem({ item }) {
-    const dispatch = useDispatch();
+export default function OrderListItem({ item, deleteItem, overwriteElement }) {
     const [count, setCount] = useState(item.numbers);
     const [price, setPrice] = useState(item.price * item.numbers);
 
-    function deleteItem(e) {
-        e.stopPropagation();
-        dispatch(removeOrderItem(item.id));
-    }
-
-    const remove = () => {
+    const decrease = () => {
         setCount(count - 1);
         setPrice(price - item.price);
-        dispatch(overwriteOrderListItem({...item, numbers: count - 1}))
+        overwriteElement(item.id, count - 1)
     }
     
-    const add = () => {
+    const increase = () => {
         setCount(count + 1);
         setPrice(item.price * (item.numbers + 1));
-        dispatch(overwriteOrderListItem({...item, numbers: count + 1}))
+        overwriteElement(item.id, count + 1)
     }
 
     return (
     <>        
         <ListItem
             secondaryAction={
-                <IconButton onClick={deleteItem} edge="end" aria-label="delete">
+                <IconButton onClick={() => deleteItem(item.id)} edge="end" aria-label="delete">
                 <DeleteIcon />
                 </IconButton>
             }
@@ -52,13 +44,13 @@ export default function OrderListItem({ item }) {
                 <ButtonGroup>      
                     <Button
                         aria-label="reduce"
-                        onClick={remove}
+                        onClick={decrease}
                         >
                         <RemoveIcon fontSize="small" />
                     </Button>
                     <Button
                         aria-label="increase"
-                        onClick={add}
+                        onClick={increase}
                     >
                         <AddIcon fontSize="small" />
                     </Button>

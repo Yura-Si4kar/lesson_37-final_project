@@ -7929,12 +7929,25 @@
       "country": "Omaha, NE"
     }
   ],
+  "orders": [],
   "tables": [
     {
       "id": 1,
       "name": "table 1",
       "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdesign-homes.ru%2Fkomnaty%2Fkukhnya-i-stolovaya%2Fservirovka-stola&psig=AOvVaw1DeIH0KCyJOfppjCfO7wo2&ust=1681477956988000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJjyz9b3pv4CFQAAAAAdAAAAABAI",
-      "order": []
+      "order": [
+        {
+          "id": "005-kings-carolina-oink-sampler",
+          "type": "our-foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/66752/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Kings BBQ",
+          "dsc": "Carolina BBQ Oink Sampler",
+          "price": 89,
+          "rate": 4,
+          "country": "Kinston, NC",
+          "numbers": 1
+        }
+      ]
     },
     {
       "id": 2,
@@ -8643,6 +8656,169 @@
       ],
       "sum": 356,
       "id": 24
+    },
+    {
+      "table": "table 2",
+      "waiter": "Андрій",
+      "order": [
+        {
+          "id": "post-oak-smoked-half-brisket",
+          "type": "our-foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/92395/post-oak-smoked-usda-prime-half-brisket.6f17178dde7d806670bcc73ff11762b3.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Southside Market & Barbeque",
+          "dsc": "Post Oak Smoked USDA Prime Half Brisket",
+          "price": 109,
+          "rate": 4,
+          "country": "Elgin, TX",
+          "numbers": 1
+        }
+      ],
+      "sum": 109,
+      "id": 25
+    },
+    {
+      "table": "table 3",
+      "waiter": "Зіна",
+      "order": [
+        {
+          "id": 1682946936697,
+          "type": "our-foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/66752/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Kings BBQ",
+          "dsc": "Carolina BBQ Oink Sampler",
+          "price": 89,
+          "rate": 4,
+          "country": "Kinston, NC",
+          "numbers": 1
+        },
+        {
+          "id": 1682957396373,
+          "type": "our-foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/66752/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Kings BBQ",
+          "dsc": "Carolina BBQ Oink Sampler",
+          "price": 89,
+          "rate": 4,
+          "country": "Kinston, NC",
+          "numbers": 1
+        }
+      ],
+      "sum": 178,
+      "id": 26
+    },
+    {
+      "table": "table 1",
+      "waiter": "Яна",
+      "order": [
+        {
+          "id": "texas-monthlys-1-bbq-brisket",
+          "type": "our-foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/131249/texas-monthlys-1-bbq-brisket.1006a061be7acae03992e420fbca995a.png?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Snow's BBQ",
+          "dsc": "Texas Monthly's #1 BBQ Brisket",
+          "price": 199,
+          "rate": 5,
+          "country": "Lexington, TX",
+          "numbers": 1
+        }
+      ],
+      "sum": 199,
+      "id": 27
+    },
+    {
+      "table": "table 3",
+      "waiter": "Андрій",
+      "order": [
+        {
+          "id": "texas-monthlys-1-bbq-brisket",
+          "type": "our-foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/131249/texas-monthlys-1-bbq-brisket.1006a061be7acae03992e420fbca995a.png?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Snow's BBQ",
+          "dsc": "Texas Monthly's #1 BBQ Brisket",
+          "price": 199,
+          "rate": 5,
+          "country": "Lexington, TX",
+          "numbers": 3
+        }
+      ],
+      "sum": 597,
+      "id": 28
+    },
+    {
+      "table": "table 3",
+      "waiter": "Андрій",
+      "order": [
+        {
+          "id": "texas-monthlys-1-bbq-brisket",
+          "type": "our-foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/131249/texas-monthlys-1-bbq-brisket.1006a061be7acae03992e420fbca995a.png?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Snow's BBQ",
+          "dsc": "Texas Monthly's #1 BBQ Brisket",
+          "price": 199,
+          "rate": 5,
+          "country": "Lexington, TX",
+          "numbers": 3
+        }
+      ],
+      "sum": 597,
+      "id": 29
+    },
+    {
+      "table": "table 2",
+      "waiter": "Сергій",
+      "order": [
+        {
+          "id": "005-kings-carolina-oink-sampler",
+          "type": "our-foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/66752/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Kings BBQ",
+          "dsc": "Carolina BBQ Oink Sampler",
+          "price": 89,
+          "rate": 4,
+          "country": "Kinston, NC",
+          "numbers": 1
+        }
+      ],
+      "sum": 89,
+      "id": 30
+    },
+    {
+      "table": "table 2",
+      "waiter": "Яна",
+      "order": [
+        {
+          "id": "005-kings-carolina-oink-sampler",
+          "type": "our-foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/66752/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Kings BBQ",
+          "dsc": "Carolina BBQ Oink Sampler",
+          "price": 89,
+          "rate": 4,
+          "country": "Kinston, NC",
+          "numbers": 2
+        }
+      ],
+      "sum": 178,
+      "id": 31
+    },
+    {
+      "table": "table 2",
+      "waiter": "Сергій",
+      "order": [
+        {
+          "id": "005-kings-carolina-oink-sampler",
+          "type": "our-foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/66752/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Kings BBQ",
+          "dsc": "Carolina BBQ Oink Sampler",
+          "price": 89,
+          "rate": 4,
+          "country": "Kinston, NC",
+          "numbers": 1
+        }
+      ],
+      "sum": 89,
+      "id": 32
     }
   ]
 }

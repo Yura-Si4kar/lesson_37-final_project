@@ -4,14 +4,14 @@ export function getFetchListByCategories(params) {
     return fetch(menuApi + params).then((res) => res.json());
 }
 
-export function setOrderList(id, order) {
+export function setOrdersListToTable(id, order) {
     return fetch(menuApi + 'tables/' + id, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(order),
-    })
+    }).then((res) => res.json())
 }
 
 export function addEmploeeToTheDataList(user) {

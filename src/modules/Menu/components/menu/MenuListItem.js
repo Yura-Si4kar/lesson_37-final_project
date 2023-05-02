@@ -10,10 +10,8 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Badge, Box, Button, ButtonGroup, CardHeader, Rating } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { useDispatch } from 'react-redux';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { addMenuItemToOrderList } from '../../../../store/actions/servicesActions';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -38,8 +36,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function RecipeReviewCard({ type }) {
-  const dispatch = useDispatch();
+export default function MenuListItem({ type, handleAddClick }) {
   const [expanded, setExpanded] = useState(false);
   const [value, setValue] = useState(type.rate);
   const [count, setCount] = useState(1);
@@ -47,10 +44,6 @@ export default function RecipeReviewCard({ type }) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
-  const handleAddClick = () => {
-    dispatch(addMenuItemToOrderList({ ...type, numbers: count }));
-  }
 
   const classes = useStyles();
 
@@ -123,7 +116,7 @@ export default function RecipeReviewCard({ type }) {
                       <AddIcon fontSize="small" />
                     </Button>
                   </ButtonGroup>
-                  <Button variant='contained' onClick={handleAddClick}>Add</Button>
+                  <Button variant='contained' onClick={() => handleAddClick({ ...type, numbers: count })}>Add</Button>
                 </Box>
               </Box>
             </CardContent>

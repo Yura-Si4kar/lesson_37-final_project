@@ -9,6 +9,7 @@ import {
     REMOVE_ORDER_ITEM,
     SET_LOADING,
     SET_MENU_LIST,
+    SET_ORDERS_LIST,
     SET_SALES_LIST,
     TIE_THE_ORDER_TO_THE_TABLE
 } from "../actions/servicesActions";
@@ -26,6 +27,8 @@ export default function reducer(state = initialValue, { type, payload }) {
             return {...state, personnel: payload};
         case SET_SALES_LIST:
             return {...state, sales: payload};
+        case SET_ORDERS_LIST:
+            return {...state, orders: payload};
         case ADD_MENU_ITEM:
             return addMenuItem(state, payload);
         case REMOVE_ORDER_ITEM:
@@ -56,7 +59,7 @@ export default function reducer(state = initialValue, { type, payload }) {
 function addMenuItem(state, item) {
     return {
         ...state, 
-            orders: [...state.orders, {...item, id: Date.now()}]
+            orders: [...state.orders, item]
     };
 }
 

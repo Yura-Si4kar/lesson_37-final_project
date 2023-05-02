@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import RecipeReviewCard from './menu/MenuListItem';
 import { selectMenuList } from '../../../store/selectors/selectors';
 import { getMenuList } from '../../../store/actions/servicesActions';
-import OrderPopupBtn from './Order/FullOrderPopupBtn';
+import OrderPopupBtn from './Order/PopupBtn/OrderPopupBtn';
 
 export default function MenuListByCategories() {
   const dispatch = useDispatch();

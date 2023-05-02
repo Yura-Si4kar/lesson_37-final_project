@@ -1,4 +1,4 @@
-import { addSalesData, getFetchListByCategories, setOrderList } from "../api";
+import { addSalesData, getFetchListByCategories, setOrdersListToTable } from "../api";
 import { createAction } from "../utils";
 
 export const SET_LOADING = 'SET_LOADING';
@@ -9,6 +9,9 @@ export const setMenuList = createAction(SET_MENU_LIST);
 
 export const SET_SALES_LIST = 'SET_SALES_LIST';
 export const setSalesList = createAction(SET_SALES_LIST);
+
+export const SET_ORDERS_LIST = 'SET_ORDERS_LIST';
+export const setOrderList = createAction(SET_ORDERS_LIST);
 
 export const ADD_MENU_ITEM = 'ADD_MENU_ITEM';
 export const addMenuItemToOrderList = createAction(ADD_MENU_ITEM);
@@ -44,7 +47,7 @@ export const tieOrder = (order) => (dispatch, getState) => {
     const table = tables.find((item) => item.name === order.name);
     table.order.push(...order.list);
     dispatch(setLoading(true));
-    setOrderList(table.id, table).then((data) => dispatch(tieTheOrderToTheTable(data)))
+    setOrdersListToTable(table.id, table).then((data) => dispatch(tieTheOrderToTheTable(data)))
         .finally(() => {
             dispatch(setLoading(false))
         })
@@ -55,7 +58,7 @@ export const clearTableOrders = (id, order) => (dispatch, getState) => {
     const rightTable = tables.find((item) => item.id === id);
     let newItem = { ...rightTable, order };
     dispatch(setLoading(true));
-    setOrderList(id, newItem).then(() => dispatch(clearOrderListFromTheTable(id)))
+    setOrdersListToTable(id, newItem).then(() => dispatch(clearOrderListFromTheTable(id)))
         .finally(() => {
             dispatch(setLoading(false))
         })

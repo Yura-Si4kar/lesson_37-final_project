@@ -26,7 +26,7 @@ export default function Tables() {
   }
 
   return (
-    <Container style={{paddingTop: 20}}>
+    <Container style={{ paddingTop: 20 }}>
       <Grid container spacing={1}>
         <Grid container item xs={12} spacing={3}>
           {tables.map((item) => <TablesItem key={item.id} table={item} />)}
