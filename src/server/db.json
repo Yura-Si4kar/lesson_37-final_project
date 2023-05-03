@@ -7935,19 +7935,7 @@
       "id": 1,
       "name": "table 1",
       "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdesign-homes.ru%2Fkomnaty%2Fkukhnya-i-stolovaya%2Fservirovka-stola&psig=AOvVaw1DeIH0KCyJOfppjCfO7wo2&ust=1681477956988000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJjyz9b3pv4CFQAAAAAdAAAAABAI",
-      "order": [
-        {
-          "id": "005-kings-carolina-oink-sampler",
-          "type": "our-foods",
-          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/66752/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
-          "name": "Kings BBQ",
-          "dsc": "Carolina BBQ Oink Sampler",
-          "price": 89,
-          "rate": 4,
-          "country": "Kinston, NC",
-          "numbers": 1
-        }
-      ]
+      "order": []
     },
     {
       "id": 2,
@@ -8819,6 +8807,66 @@
       ],
       "sum": 89,
       "id": 32
+    },
+    {
+      "table": "table 1",
+      "waiter": "Яна",
+      "order": [
+        {
+          "id": "005-kings-carolina-oink-sampler",
+          "type": "our-foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/66752/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Kings BBQ",
+          "dsc": "Carolina BBQ Oink Sampler",
+          "price": 89,
+          "rate": 4,
+          "country": "Kinston, NC",
+          "numbers": 2
+        }
+      ],
+      "sum": 178,
+      "id": 33
+    },
+    {
+      "table": "table 5",
+      "waiter": "Зіна",
+      "order": [
+        {
+          "id": "legendary-seafood-gumbo",
+          "type": "best-foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/133100/legendary-seafood-gumbo.a4010efb8ba0569ff59d68c3723f0963.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Commander's Palace",
+          "dsc": "Legendary Seafood Gumbo",
+          "price": 89,
+          "rate": 4,
+          "country": "New Orleans, LA",
+          "numbers": 1
+        },
+        {
+          "id": "gotts-cheeseburger-kit-for-4",
+          "type": "burgers",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/132933/gotts-complete-cheeseburger-kit-for-4.7bdc74104b193427b3fe6eae39e05b5e.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Gott's Roadside",
+          "dsc": "Gott's Complete Cheeseburger Kit for 4",
+          "price": 99,
+          "rate": 5,
+          "country": "St. Helena, CA",
+          "numbers": 1
+        },
+        {
+          "id": "evan-williams-gourmet-mint-julep-mix",
+          "type": "drinks",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/92899/evan-williams-gourmet-mint-julep-mix.c90e8c3ed5ac0dc1c85139e6b7b8521c.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Evan Williams",
+          "dsc": "Evan Williams Gourmet Mint Julep Mix",
+          "price": 25,
+          "rate": 5,
+          "country": "Louisville, KY",
+          "numbers": 1
+        }
+      ],
+      "sum": 213,
+      "id": 34
     }
   ]
 }

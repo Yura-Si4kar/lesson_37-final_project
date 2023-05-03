@@ -10,16 +10,17 @@ import Loading from '../../Components/Loading/Loading';
 const darkTheme = createTheme({ palette: { mode: 'dark' } });
 
 export default function App() {
+  const TABLE_LIST_PARAM = 'tables';
   const dispatch = useDispatch();
   const loading = useSelector(selectLoading);
 
   useEffect(() => {
-    dispatch(getTableList('tables'));
+    dispatch(getTableList(TABLE_LIST_PARAM));
   }, [dispatch]);
 
   return (
     <>
-      {loading && <Loading/>}
+      {loading && <Loading />}
       <Grid container spacing={12}>
         {[darkTheme].map((theme, index) => (
           <Grid item xs={12} key={index}>

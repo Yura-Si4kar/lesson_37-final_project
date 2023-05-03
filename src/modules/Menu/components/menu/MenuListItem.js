@@ -12,6 +12,8 @@ import { Badge, Box, Button, ButtonGroup, CardHeader, Rating } from '@mui/materi
 import { makeStyles } from '@mui/styles';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { useDispatch } from 'react-redux';
+import { addMenuItems } from '../../../../store/actions/servicesActions';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -36,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function MenuListItem({ type, handleAddClick }) {
+export default function MenuListItem({ type }) {
+  const dispatch = useDispatch();
   const [expanded, setExpanded] = useState(false);
   const [value, setValue] = useState(type.rate);
   const [count, setCount] = useState(1);
@@ -44,6 +47,10 @@ export default function MenuListItem({ type, handleAddClick }) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const handleAddClick = () => {
+    dispatch(addMenuItems({ ...type, numbers: count }))
+  }
 
   const classes = useStyles();
 
@@ -116,7 +123,7 @@ export default function MenuListItem({ type, handleAddClick }) {
                       <AddIcon fontSize="small" />
                     </Button>
                   </ButtonGroup>
-                  <Button variant='contained' onClick={() => handleAddClick({ ...type, numbers: count })}>Add</Button>
+                  <Button variant='contained' onClick={handleAddClick}>Add</Button>
                 </Box>
               </Box>
             </CardContent>

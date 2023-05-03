@@ -1,5 +1,6 @@
 import { addSalesData, getFetchListByCategories, setOrdersListToTable } from "../api";
 import { createAction } from "../utils";
+import { clearLocalStorage, deleteItemsFromLocalStorage, getItemsFromLocalStorage, saveItemsToLocalStorage, updateItemsInLocalStorage } from "../localStorage";
 
 export const SET_LOADING = 'SET_LOADING';
 export const setLoading = createAction(SET_LOADING);
@@ -36,10 +37,49 @@ export const calculateTheExtractor = createAction(CALCULATE_THE_CLIENT);
 
 export const getMenuList = (params) => (dispatch, getState) => {
     dispatch(setLoading(true));
-    getFetchListByCategories(params).then((data) => dispatch(setMenuList(data)))
+    getFetchListByCategories(params)
+        .then((data) => dispatch(setMenuList(data)))
+        .catch((error) => console.error(error))
         .finally(() => {
         dispatch(setLoading(false))
     })
+}
+
+export const getOrderList = () => (dispatch, getState) => {
+    dispatch(setLoading(true));
+    const orders = getItemsFromLocalStorage();
+    dispatch(setOrderList(orders));
+    dispatch(setLoading(false));
+}
+
+export const addMenuItems = (value) => (dispatch, getState) => {
+    dispatch(setLoading(true));
+    dispatch(addMenuItemToOrderList(value));
+    saveItemsToLocalStorage(value);
+    dispatch(setLoading(false));
+}
+
+export const removeOrderElement = (id) => (dispatch, getState) => {
+    dispatch(setLoading(true));
+    dispatch(removeOrderItem(id));
+    deleteItemsFromLocalStorage(id);
+    dispatch(setLoading(false));
+}
+
+export const overwriteOrderItem = (id, value) => (dispatch, getState) => {
+    dispatch(setLoading(true));
+    const {orders} = getState();
+    const order = orders.find((item) => item.id === id);
+    dispatch(overwriteOrderListItem({...order, numbers: value}))
+    updateItemsInLocalStorage(id, {...order, numbers: value})
+    dispatch(setLoading(false));
+}
+
+export const clearStorage = () => (dispatch, getState) => {
+    dispatch(setLoading(true))
+    dispatch(clearOrdersList())
+    clearLocalStorage();
+    dispatch(setLoading(false))
 }
 
 export const tieOrder = (order) => (dispatch, getState) => {
@@ -47,7 +87,9 @@ export const tieOrder = (order) => (dispatch, getState) => {
     const table = tables.find((item) => item.name === order.name);
     table.order.push(...order.list);
     dispatch(setLoading(true));
-    setOrdersListToTable(table.id, table).then((data) => dispatch(tieTheOrderToTheTable(data)))
+    setOrdersListToTable(table.id, table)
+        .then((data) => dispatch(tieTheOrderToTheTable(data)))
+        .catch((error) => console.error(error))
         .finally(() => {
             dispatch(setLoading(false))
         })
@@ -59,6 +101,7 @@ export const clearTableOrders = (id, order) => (dispatch, getState) => {
     let newItem = { ...rightTable, order };
     dispatch(setLoading(true));
     setOrdersListToTable(id, newItem).then(() => dispatch(clearOrderListFromTheTable(id)))
+        .catch((error) => console.error(error))
         .finally(() => {
             dispatch(setLoading(false))
         })
@@ -67,6 +110,7 @@ export const clearTableOrders = (id, order) => (dispatch, getState) => {
 export const saveSalesDate = (obj) => (dispatch, getState) => {
     dispatch(setLoading(true));
     addSalesData(obj).then((data) => dispatch(calculateTheExtractor(data)))
+        .catch((error) => console.error(error))
         .finally(() => {
             dispatch(setLoading(false))
         })
@@ -75,6 +119,7 @@ export const saveSalesDate = (obj) => (dispatch, getState) => {
 export const getSalesList = (params) => (dispatch, getState) => {
     dispatch(setLoading(true));
     getFetchListByCategories(params).then((data) => dispatch(setSalesList(data)))
+        .catch((error) => console.error(error))
         .finally(() => {
         dispatch(setLoading(false))
     })

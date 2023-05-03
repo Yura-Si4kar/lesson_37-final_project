@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectOrdersList, selectTablesList } from '../../../../store/selectors/selectors';
 import { styled } from '@mui/material/styles';
 import OrderListItem from './OrderListItem';
-import { tieOrder } from '../../../../store/actions/servicesActions';
+import { clearStorage, tieOrder } from '../../../../store/actions/servicesActions';
 import CloseIcon from '@mui/icons-material/Close';
 
 const Demo = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
 }));
 
-export default function DialogWindow({ open, handleClose, deleteItem, overwriteElement, clearStorage }) {
+export default function DialogWindow({ open, handleClose }) {
   const list = useSelector(selectOrdersList);
   const tables = useSelector(selectTablesList);
   const dispatch = useDispatch();
@@ -34,12 +34,12 @@ export default function DialogWindow({ open, handleClose, deleteItem, overwriteE
     }
 
     dispatch(tieOrder(order))
-    clearStorage()
+    dispatch(clearStorage())
     handleClose();
    }
 
    function onCansel() {
-    clearStorage()
+    dispatch(clearStorage())
     handleClose();
    }
 
@@ -58,7 +58,7 @@ export default function DialogWindow({ open, handleClose, deleteItem, overwriteE
               <Grid item xs={12} md={12}>
               <Demo>
                   <List>
-                  {list.map((item) => <OrderListItem key={item.id} item={item} deleteItem={deleteItem} overwriteElement={overwriteElement} />)}
+                  {list.map((item) => <OrderListItem key={item.id} item={item}/>)}
                   </List>
               </Demo>
               </Grid>

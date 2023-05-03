@@ -5,7 +5,7 @@ import DialogWindow from '../DialogWindow';
 import { useSelector } from 'react-redux';
 import { selectOrdersList } from '../../../../../store/selectors/selectors';
 
-export default function OrderPopupBtn({deleteItem, overwriteElement, clearStorage}) {
+export default function OrderPopupBtn() {
   const ordersList = useSelector(selectOrdersList);
   const [open, setOpen] = useState(false);
 
@@ -32,9 +32,6 @@ export default function OrderPopupBtn({deleteItem, overwriteElement, clearStorag
         <DialogWindow
         open={open}
         handleClose={handleClose}
-        deleteItem={deleteItem}
-        overwriteElement={overwriteElement}
-        clearStorage={clearStorage}
       />
       }
     </>
