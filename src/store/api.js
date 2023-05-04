@@ -4,6 +4,16 @@ export function getFetchListByCategories(params) {
     return fetch(menuApi + params).then((res) => res.json());
 }
 
+export function setNewRatingToTheMenuItem(params, id, newItem) {
+    return fetch(menuApi + `${params}/` + id, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newItem),
+    }).then((res) => res.json())
+}
+
 export function setOrdersListToTable(id, order) {
     return fetch(menuApi + 'tables/' + id, {
         method: 'PUT',

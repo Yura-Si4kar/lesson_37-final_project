@@ -23,7 +23,7 @@ export default function MenuList() {
         <div className='dishes-list'>
           {list.map((item) => <MenuListItem
             key={item.id}
-            type={item}
+            item={item}
           />)}
         </div>
       </Container>

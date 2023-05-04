@@ -23,7 +23,7 @@ export default function MenuListByCategories() {
           <Typography variant='h1' style={{fontSize: '25px'}}>{params.item.toLocaleUpperCase()}</Typography>
         </Box>
         <div className='dishes-list'>
-          {list.map((item) => <MenuListItem key={item.id} type={item} />)}
+          {list.map((item) => <MenuListItem key={item.id} item={item} />)}
         </div>
         <OrderPopupBtn/>
       </Container>

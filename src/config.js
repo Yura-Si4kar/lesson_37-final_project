@@ -8,4 +8,5 @@ export const initialValue = {
     tables: [],
     personnel: [],
     sales: [],
+    error: false,
 }

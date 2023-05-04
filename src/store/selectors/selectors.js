@@ -21,3 +21,7 @@ export function selectPersonnelList(state) {
 export function selectStatisticsList(state) {
     return state.sales;
 }
+
+export function selectError(state) {
+    return state.error;
+}

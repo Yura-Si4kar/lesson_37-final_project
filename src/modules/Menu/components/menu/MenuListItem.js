@@ -13,7 +13,7 @@ import { makeStyles } from '@mui/styles';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useDispatch } from 'react-redux';
-import { addMenuItems } from '../../../../store/actions/servicesActions';
+import { addMenuItems, changeItemRating } from '../../../../store/actions/servicesActions';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -38,18 +38,23 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function MenuListItem({ type }) {
+export default function MenuListItem({ item }) {
   const dispatch = useDispatch();
   const [expanded, setExpanded] = useState(false);
-  const [value, setValue] = useState(type.rate);
+  const [rating, setRating] = useState(item.rate);
   const [count, setCount] = useState(1);
+
+  const changeRating = (newValue) => {
+    setRating(newValue);
+    dispatch(changeItemRating(item.type, item.id, newValue));
+  }
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   const handleAddClick = () => {
-    dispatch(addMenuItems({ ...type, numbers: count }))
+    dispatch(addMenuItems({ ...item, numbers: count }))
   }
 
   const classes = useStyles();
@@ -62,24 +67,24 @@ export default function MenuListItem({ type }) {
           <CardMedia
             component="img"
             height="194"
-            image={type.img}
+            image={item.img}
             alt="Paella dish"
           />
           <CardContent>
             <Typography variant="h6" color="text.secondary">
-              {type.name}
+              {item.name}
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
             <Typography variant='p' color='yellowgreen'>
-              Ціна: {type.price} $
+              Ціна: {item.price} $
             </Typography>
             <Typography variant='span' className={classes.rating}>
               <Rating
                 name="simple-controlled"
-                value={value}
+                value={rating}
                 onChange={(event, newValue) => {
-                  setValue(newValue);
+                  changeRating(newValue);
                 }}
               />
             </Typography>
@@ -94,9 +99,9 @@ export default function MenuListItem({ type }) {
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              {type.dsc && 
+              {item.dsc && 
                 <Typography paragraph>
-                  Опис: {type.dsc}
+                  Опис: {item.dsc}
                 </Typography>
               }              
               <Box>

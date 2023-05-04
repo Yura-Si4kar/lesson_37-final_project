@@ -1,9 +1,12 @@
-import { addSalesData, getFetchListByCategories, setOrdersListToTable } from "../api";
+import { addSalesData, getFetchListByCategories, setNewRatingToTheMenuItem, setOrdersListToTable } from "../api";
 import { createAction } from "../utils";
 import { clearLocalStorage, deleteItemsFromLocalStorage, getItemsFromLocalStorage, saveItemsToLocalStorage, updateItemsInLocalStorage } from "../localStorage";
 
 export const SET_LOADING = 'SET_LOADING';
 export const setLoading = createAction(SET_LOADING);
+
+export const SET_ERROR = 'SET_ERROR';
+export const setError = createAction(SET_ERROR);
 
 export const SET_MENU_LIST = 'SET_MENU_LIST';
 export const setMenuList = createAction(SET_MENU_LIST);
@@ -35,13 +38,21 @@ export const clearOrdersList = createAction(CLEAR_ORDER_LIST);
 export const CALCULATE_THE_CLIENT = 'CALCULATE_THE_CLIENT';
 export const calculateTheExtractor = createAction(CALCULATE_THE_CLIENT);
 
+export const CHANGE_ITEM_RATING = 'CHANGE_ITEM_RATING';
+export const changeElementRating = createAction(CHANGE_ITEM_RATING);
+
 export const getMenuList = (params) => (dispatch, getState) => {
     dispatch(setLoading(true));
     getFetchListByCategories(params)
-        .then((data) => dispatch(setMenuList(data)))
-        .catch((error) => console.error(error))
+        .then((data) => {
+            dispatch(setMenuList(data))
+            dispatch(setError(false))
+        })
+        .catch((error) => {
+            dispatch(setError(true))
+        })
         .finally(() => {
-        dispatch(setLoading(false))
+            dispatch(setLoading(false))
     })
 }
 
@@ -57,6 +68,17 @@ export const addMenuItems = (value) => (dispatch, getState) => {
     dispatch(addMenuItemToOrderList(value));
     saveItemsToLocalStorage(value);
     dispatch(setLoading(false));
+}
+
+export const changeItemRating = (params, id, newRating) => (dispatch, getState) => {
+    const { list } = getState();
+    const item = list.find((el) => el.id === id);
+    const newItem = { ...item, rate: newRating };
+    dispatch(setLoading(true));
+    setNewRatingToTheMenuItem(params, id, newItem).then((data) => dispatch(changeElementRating(data)))
+        .finally(() => {
+            dispatch(setLoading(false));
+        })
 }
 
 export const removeOrderElement = (id) => (dispatch, getState) => {
