@@ -20,7 +20,12 @@ export default function MenuListByCategories() {
     <>
       <Container maxWidth='xl'>
         <Box>
-          <Typography variant='h1' style={{fontSize: '25px'}}>{params.item.toLocaleUpperCase()}</Typography>
+          <Typography
+            variant='h1'
+            style={{
+              fontSize: '25px'
+            }}
+          >{params.item.toLocaleUpperCase()}</Typography>
         </Box>
         <div className='dishes-list'>
           {list.map((item) => <MenuListItem key={item.id} item={item} />)}

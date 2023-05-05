@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectPersonnelList } from '../../../store/selectors/selectors';
 import { calculateTheExtractor, clearTableOrders, saveSalesDate } from '../../../store/actions/servicesActions';
 import CheckWithdrawalWindow from './CheckWithdrawalWindow';
-import pic from '../../../img/tables/table.jpg';
+import pic from '../../../img/table.jpg';
 import { deleteTable } from '../../../store/actions/tablesActions';
 
 const ExpandMore = styled((props) => {

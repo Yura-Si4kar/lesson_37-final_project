@@ -1,56 +1,56 @@
-import { Container } from '@mui/material'
+import { Box, Container, List, ListItem } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Сategories() {
   return (
     <Container>
-      <div className='categories'>
-        <ul className='categories_list'>
-          <li className='categories_list-item categories_list-item_img-01'>
-            <Link to={'bbqs'}>bbqs</Link>
-          </li>
-          <li className='categories_list-item categories_list-item_img-02'>
-            <Link to={'best'}>best-foods</Link>
-          </li>
-          <li className='categories_list-item categories_list-item_img-03'>
-            <Link to={'breads'}>breads</Link>
-          </li>
-          <li className='categories_list-item categories_list-item_img-04'>
-            <Link to={'burgers'}>burgers</Link>
-          </li>
-          <li className='categories_list-item categories_list-item_img-05'>
-            <Link to={'chocolates'}>chocolates</Link>
-          </li>
-          <li className='categories_list-item categories_list-item_img-06'>
-            <Link to={'desserts'}>desserts</Link>
-          </li>
-          <li className='categories_list-item categories_list-item_img-07'>
-            <Link to={'drinks'}>drinks</Link>
-          </li>
-          <li className='categories_list-item categories_list-item_img-08'>
-            <Link to={'fried-chicken'}>fried-chicken</Link>
-          </li>
-          <li className='categories_list-item categories_list-item_img-08'>
-            <Link to={'ice-cream'}>ice-cream</Link>
-          </li>
-          <li className='categories_list-item categories_list-item_img-08'>
-            <Link to={'pizzas'}>pizzas</Link>
-          </li>
-          <li className='categories_list-item categories_list-item_img-08'>
-            <Link to={'porks'}>porks</Link>
-          </li>
-          <li className='categories_list-item categories_list-item_img-08'>
-            <Link to={'sandwiches'}>sandwiches</Link>
-          </li>
-          <li className='categories_list-item categories_list-item_img-08'>
-            <Link to={'sausages'}>sausages</Link>
-          </li>
-          <li className='categories_list-item categories_list-item_img-08'>
-            <Link to={'steaks'}>steaks</Link>
-          </li>
-        </ul>
-      </div>
+      <Box className='categories'>
+        <List className='categories_list'>
+          <Link to={'bbqs'} style={{textDecoration: 'none'}}>
+            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>bbqs</ListItem>
+          </Link>
+          <Link to={'best'} style={{textDecoration: 'none'}}>
+            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>best-foods</ListItem>
+          </Link>
+          <Link to={'breads'} style={{textDecoration: 'none'}}>
+            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>breads</ListItem>
+          </Link>
+          <Link to={'burgers'} style={{textDecoration: 'none'}}>
+            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>burgers</ListItem>
+          </Link>
+          <Link to={'chocolates'} style={{textDecoration: 'none'}}>
+            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>chocolates</ListItem>
+          </Link>
+          <Link to={'desserts'} style={{textDecoration: 'none'}}>
+            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>desserts</ListItem>
+          </Link>
+          <Link to={'drinks'} style={{textDecoration: 'none'}}>
+            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>drinks</ListItem>
+          </Link>
+          <Link to={'fried-chicken'} style={{textDecoration: 'none'}}>
+            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>fried-chicken</ListItem>
+          </Link>
+          <Link to={'ice-cream'} style={{textDecoration: 'none'}}>
+            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>ice-cream</ListItem>
+          </Link>
+          <Link to={'pizzas'} style={{textDecoration: 'none'}}>
+            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>pizzas</ListItem>
+          </Link>
+          <Link to={'porks'} style={{textDecoration: 'none'}}>
+            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>porks</ListItem>
+          </Link>
+          <Link to={'sandwiches'} style={{textDecoration: 'none'}}>
+            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>sandwiches</ListItem>
+          </Link>
+          <Link to={'sausages'} style={{textDecoration: 'none'}}>
+            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>sausages</ListItem>
+          </Link>
+          <Link to={'steaks'} style={{textDecoration: 'none'}}>
+            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>steaks</ListItem>
+          </Link>
+        </List>
+      </Box>
     </Container>
   )
 }

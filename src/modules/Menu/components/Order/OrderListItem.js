@@ -45,7 +45,7 @@ export default function OrderListItem({ item }) {
                 primary={item.name}
             />
             <ListItemText
-                primary={`${price} $`}
+                primary={`${price.toFixed(2)} $`}
             />
             <Box style={{ display: 'flex', justifyContent: 'space-between' }}>   
                 <ButtonGroup>      

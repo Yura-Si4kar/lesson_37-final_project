@@ -57,6 +57,8 @@
     ]
   },
   "devDependencies": {
+    "@mdi/js": "^7.2.96",
+    "@mdi/react": "^1.6.1",
     "concurrently": "^8.0.1"
   }
 }

@@ -1,18 +1,26 @@
 import { initialValue } from "../../config";
-import { ADD_EMPLOYEE, DELETE_EMPLOYEE, SET_PERSONELL_LIST } from "../actions/personnelActions";
+import { ADD_EMPLOYEE, DELETE_EMPLOYEE, SET_PERSONELL_LIST, SET_PERSONNEL_ERROR, SET_PERSONNEL_LIST_LOADING } from "../actions/personnelActions";
 import {
     ADD_MENU_ITEM, CALCULATE_THE_CLIENT, CHANGE_ITEM_RATING,
     CLEAR_ORDER_LIST, CLEAR_ORDER_LIST_FROM_THE_TABLE, OVERWRITE_ORDER_ITEM,
     REMOVE_ORDER_ITEM, SET_ERROR, SET_LOADING, SET_MENU_LIST,
     SET_ORDERS_LIST, SET_SALES_LIST, TIE_THE_ORDER_TO_THE_TABLE
 } from "../actions/servicesActions";
-import { ADD_TABLE, DELETE_TABLE, SET_TABLES_LIST } from "../actions/tablesActions";
+import { ADD_TABLE, DELETE_TABLE, SET_TABLES_LIST, SET_TABLE_ERROR, SET_TABLE_LIST_LOADING } from "../actions/tablesActions";
 
 export default function reducer(state = initialValue, { type, payload }) {
     switch (type) {
         case SET_LOADING:
             return { ...state, isLoading: payload }
+        case SET_PERSONNEL_LIST_LOADING:
+            return { ...state, isLoading: payload }
+        case SET_TABLE_LIST_LOADING:
+            return { ...state, isLoading: payload }
         case SET_ERROR:
+            return {...state, error: payload}
+        case SET_PERSONNEL_ERROR:
+            return {...state, error: payload}
+        case SET_TABLE_ERROR:
             return {...state, error: payload}
         case SET_MENU_LIST:
             return {...state, list: payload};

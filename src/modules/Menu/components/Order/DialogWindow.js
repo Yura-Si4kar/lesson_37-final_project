@@ -18,8 +18,8 @@ export default function DialogWindow({ open, handleClose }) {
   
   const [table, setTable] = useState('');
 
-  const getOrdersSum = (list) => {
-    return list.reduce((acc, item) => acc + (item.price * item.numbers), 0);
+  const getOrdersSum = () => {
+    return list.reduce((acc, item) => acc + (item.price * item.numbers), 0).toFixed(2);
   }
 
   const handleChange = (event) => {
@@ -65,7 +65,7 @@ export default function DialogWindow({ open, handleClose }) {
           </Grid>
           <Typography paragraph style={{
               textAlign: 'right'
-          }}>Загальна сума: {getOrdersSum(list) + ' $'}</Typography>
+          }}>Загальна сума: {getOrdersSum() + ' $'}</Typography>
           <Box>
             <FormControl sx={{ m: 1, minWidth: 120 }}>
                 <InputLabel id="demo-simple-select-helper-label">Стіл №</InputLabel>

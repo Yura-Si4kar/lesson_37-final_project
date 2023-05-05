@@ -52,7 +52,7 @@ export default function WaitersSalary({ sales }) {
         labels: waiters.map((waiter) => waiter.name),
         datasets: [
             {
-            label: 'Зароблено коштів за весь період',
+            label: 'Відсоток від всієї виручки в %',
             data: calculateSalary(),
             backgroundColor: createBackgroundsColor(),
             borderColor: createBackgroundsColor(),

@@ -9,7 +9,6 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Badge, Box, Button, ButtonGroup, CardHeader, Rating } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useDispatch } from 'react-redux';
@@ -25,18 +24,6 @@ const ExpandMore = styled((props) => {
     duration: theme.transitions.duration.shortest,
   }),
 }));
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow:1
-  },
-  rating: {
-    marginLeft: 30 + 'px',
-  },
-  addButton: {
-    fontSize: '16px',
-  }
-}))
 
 export default function MenuListItem({ item }) {
   const dispatch = useDispatch();
@@ -57,8 +44,6 @@ export default function MenuListItem({ item }) {
     dispatch(addMenuItems({ ...item, numbers: count }))
   }
 
-  const classes = useStyles();
-
   return (
     <>
       <div className='dishes-list-box'>
@@ -75,11 +60,11 @@ export default function MenuListItem({ item }) {
               {item.name}
             </Typography>
           </CardContent>
-          <CardActions disableSpacing>
+          <CardActions>
             <Typography variant='p' color='yellowgreen'>
               Ціна: {item.price} $
             </Typography>
-            <Typography variant='span' className={classes.rating}>
+            <Typography variant='span'>
               <Rating
                 name="simple-controlled"
                 value={rating}
@@ -109,7 +94,12 @@ export default function MenuListItem({ item }) {
                   <Typography variant='span'>Кількість:</Typography>
                   <Badge style={{left: 20}} color="secondary" badgeContent={count}></Badge>
                 </Box>
-                <Box  style={{display: 'flex', justifyContent: 'space-between'}}>
+                <Box
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between'
+                  }}
+                >
                   <ButtonGroup>
                     <Button
                       aria-label="reduce"

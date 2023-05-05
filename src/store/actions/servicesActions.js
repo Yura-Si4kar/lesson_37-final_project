@@ -49,6 +49,7 @@ export const getMenuList = (params) => (dispatch, getState) => {
             dispatch(setError(false))
         })
         .catch((error) => {
+            console.error(error);
             dispatch(setError(true))
         })
         .finally(() => {
@@ -56,17 +57,33 @@ export const getMenuList = (params) => (dispatch, getState) => {
     })
 }
 
-export const getOrderList = () => (dispatch, getState) => {
+export const getOrderList = () => async (dispatch) => {
     dispatch(setLoading(true));
-    const orders = getItemsFromLocalStorage();
-    dispatch(setOrderList(orders));
+    
+    try {
+        const orders = await getItemsFromLocalStorage();
+        dispatch(setOrderList(orders));
+        dispatch(setError(false));
+    } catch (error) {
+        console.error(error);
+        dispatch(setError(true));
+    }
+
     dispatch(setLoading(false));
 }
 
-export const addMenuItems = (value) => (dispatch, getState) => {
+export const addMenuItems = (value) => async (dispatch, getState) => {
     dispatch(setLoading(true));
     dispatch(addMenuItemToOrderList(value));
-    saveItemsToLocalStorage(value);
+    
+    try {
+        saveItemsToLocalStorage(value);
+        dispatch(setError(false));
+    } catch (error) {
+        console.error(error);
+        dispatch(setError(true));
+    }
+    
     dispatch(setLoading(false));
 }
 
@@ -74,33 +91,60 @@ export const changeItemRating = (params, id, newRating) => (dispatch, getState) 
     const { list } = getState();
     const item = list.find((el) => el.id === id);
     const newItem = { ...item, rate: newRating };
-    dispatch(setLoading(true));
-    setNewRatingToTheMenuItem(params, id, newItem).then((data) => dispatch(changeElementRating(data)))
-        .finally(() => {
-            dispatch(setLoading(false));
+    setNewRatingToTheMenuItem(params, id, newItem)
+        .then((data) => {
+            dispatch(changeElementRating(data));
+            dispatch(setError(false));
+        }).catch((error) => {
+            console.error(error);
+            dispatch(setError(true));
         })
 }
 
-export const removeOrderElement = (id) => (dispatch, getState) => {
+export const removeOrderElement = (id) => async (dispatch, getState) => {
     dispatch(setLoading(true));
     dispatch(removeOrderItem(id));
-    deleteItemsFromLocalStorage(id);
+    
+    try {
+        deleteItemsFromLocalStorage(id);
+        dispatch(setError(false));
+    } catch (error) {
+        console.error(error);
+        dispatch(setError(true));
+    }
+    
     dispatch(setLoading(false));
 }
 
-export const overwriteOrderItem = (id, value) => (dispatch, getState) => {
+export const overwriteOrderItem = (id, value) => async (dispatch, getState) => {
     dispatch(setLoading(true));
     const {orders} = getState();
     const order = orders.find((item) => item.id === id);
-    dispatch(overwriteOrderListItem({...order, numbers: value}))
-    updateItemsInLocalStorage(id, {...order, numbers: value})
+    dispatch(overwriteOrderListItem({ ...order, numbers: value }))
+
+    try {
+        updateItemsInLocalStorage(id, {...order, numbers: value})
+        dispatch(setError(false));
+    } catch (error) {
+        console.error(error);
+        dispatch(setError(true));
+    }
+
     dispatch(setLoading(false));
 }
 
-export const clearStorage = () => (dispatch, getState) => {
-    dispatch(setLoading(true))
-    dispatch(clearOrdersList())
-    clearLocalStorage();
+export const clearStorage = () => async (dispatch, getState) => {
+    dispatch(setLoading(true));
+    dispatch(clearOrdersList());
+
+    try {
+        clearLocalStorage();
+        dispatch(setError(false));  
+    } catch (error) {
+        console.error(error);
+        dispatch(setError(true));
+    }
+
     dispatch(setLoading(false))
 }
 
@@ -110,8 +154,14 @@ export const tieOrder = (order) => (dispatch, getState) => {
     table.order.push(...order.list);
     dispatch(setLoading(true));
     setOrdersListToTable(table.id, table)
-        .then((data) => dispatch(tieTheOrderToTheTable(data)))
-        .catch((error) => console.error(error))
+        .then((data) => {
+            dispatch(tieTheOrderToTheTable(data));
+            dispatch(setError(false));
+        })
+        .catch((error) => {
+            console.error(error);
+            dispatch(setError(true));
+        })
         .finally(() => {
             dispatch(setLoading(false))
         })
@@ -122,8 +172,15 @@ export const clearTableOrders = (id, order) => (dispatch, getState) => {
     const rightTable = tables.find((item) => item.id === id);
     let newItem = { ...rightTable, order };
     dispatch(setLoading(true));
-    setOrdersListToTable(id, newItem).then(() => dispatch(clearOrderListFromTheTable(id)))
-        .catch((error) => console.error(error))
+    setOrdersListToTable(id, newItem)
+        .then(() => {
+            dispatch(clearOrderListFromTheTable(id))
+            dispatch(setError(false));
+        })
+        .catch((error) => {
+            console.error(error);
+            dispatch(setError(true));
+        })
         .finally(() => {
             dispatch(setLoading(false))
         })
@@ -131,8 +188,15 @@ export const clearTableOrders = (id, order) => (dispatch, getState) => {
 
 export const saveSalesDate = (obj) => (dispatch, getState) => {
     dispatch(setLoading(true));
-    addSalesData(obj).then((data) => dispatch(calculateTheExtractor(data)))
-        .catch((error) => console.error(error))
+    addSalesData(obj)
+        .then((data) => {
+            dispatch(calculateTheExtractor(data));
+            dispatch(setError(false));
+        })
+        .catch((error) => {
+            console.error(error);
+            dispatch(setError(true));
+        })
         .finally(() => {
             dispatch(setLoading(false))
         })
@@ -140,8 +204,15 @@ export const saveSalesDate = (obj) => (dispatch, getState) => {
 
 export const getSalesList = (params) => (dispatch, getState) => {
     dispatch(setLoading(true));
-    getFetchListByCategories(params).then((data) => dispatch(setSalesList(data)))
-        .catch((error) => console.error(error))
+    getFetchListByCategories(params)
+        .then((data) => {
+            dispatch(setSalesList(data));
+            dispatch(setError(false));
+        })
+        .catch((error) => {
+            console.error(error)
+            dispatch(setError(true));
+        })
         .finally(() => {
         dispatch(setLoading(false))
     })

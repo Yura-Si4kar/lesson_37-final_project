@@ -6935,7 +6935,7 @@
       "name": "Kings BBQ",
       "dsc": "Carolina BBQ Oink Sampler",
       "price": 89,
-      "rate": 5,
+      "rate": 4,
       "country": "Kinston, NC"
     },
     {
@@ -8144,6 +8144,25 @@
       ],
       "sum": 25,
       "id": 7
+    },
+    {
+      "table": "table 1",
+      "waiter": "Андрій",
+      "order": [
+        {
+          "id": "005-kings-carolina-oink-sampler",
+          "type": "foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/66752/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Kings BBQ",
+          "dsc": "Carolina BBQ Oink Sampler",
+          "price": 89,
+          "rate": 5,
+          "country": "Kinston, NC",
+          "numbers": 1
+        }
+      ],
+      "sum": 89,
+      "id": 8
     }
   ]
 }
