@@ -73,7 +73,7 @@ export default function TablesItem({ table }) {
 
     return (
     <React.Fragment>    
-        <Grid item xs={4}>            
+        <Grid item xs={12} sm={6} md={4} lg={3}>            
             <Card style={{position:'relative'}}>
                 <CardMedia
                     component='img'

@@ -22,13 +22,13 @@ export default function PersonnelItem({ person }) {
     
     return (
     <React.Fragment>    
-        <Grid item xs={3}>            
+        <Grid item xs={12} sm={6} md={4} lg={3}>            
             <Card style={{position:'relative'}}>
                 <CardMedia
                     component='img'
-                    height='200'
                     image={pic}
-                    alt={`table`}    
+                    alt={`emploee`}  
+                    style={{height: 'auto', maxWidth: 100 + '%'}}
                     />
                 <CardContent>
                     <Button

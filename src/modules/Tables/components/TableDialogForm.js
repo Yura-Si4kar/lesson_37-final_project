@@ -56,7 +56,7 @@ export default function TableDialogForm({ open, handleClose }) {
       <DialogContent>
         <Form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Введіть ім'я працівника: </Form.Label>
+            <Form.Label>Назва столику: </Form.Label>
             <Form.Control type='text' name='name' placeholder="Ім'я" onChange={getInput}/>  
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">

@@ -13,6 +13,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useDispatch } from 'react-redux';
 import { addMenuItems, changeItemRating } from '../../../../store/actions/servicesActions';
+import { makeStyles } from '@mui/styles';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -23,6 +24,23 @@ const ExpandMore = styled((props) => {
   transition: theme.transitions.create('transform', {
     duration: theme.transitions.duration.shortest,
   }),
+}));
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    [theme.breakpoints.up('xs')]: {
+      width: '100%',
+    },
+    [theme.breakpoints.up('sm')]: {
+      width: '50%',
+    },
+    [theme.breakpoints.up('md')]: {
+      width: '33.33%',
+    },
+    [theme.breakpoints.up('lg')]: {
+      width: '25%',
+    },
+  },
 }));
 
 export default function MenuListItem({ item }) {
@@ -44,9 +62,11 @@ export default function MenuListItem({ item }) {
     dispatch(addMenuItems({ ...item, numbers: count }))
   }
 
+  const classes = useStyles();
+
   return (
     <>
-      <div className='dishes-list-box'>
+      <div className={`dishes-list-box ${classes.root}`}>
         <Card className='dishes-list-item' sx={{ width: '100%' }}>
           <CardHeader></CardHeader>
           <CardMedia

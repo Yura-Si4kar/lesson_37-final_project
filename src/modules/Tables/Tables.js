@@ -36,7 +36,7 @@ export default function Tables() {
       <Button
           onClick={handleOpen}
           variant='contained'
-          style={{ position: 'fixed', top: 100, width: 80, height: 80, right: 40, fontSize: 12, borderRadius: 50 + '%' }}
+          style={{ position: 'fixed', top: 100, width: 80, height: 80, left: 40, fontSize: 12, borderRadius: 50 + '%' }}
       >
           Додати столик
       </Button>

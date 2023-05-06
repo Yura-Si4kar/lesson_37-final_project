@@ -12,9 +12,11 @@ export default function OrderListItem({ item }) {
     const [price, setPrice] = useState(item.price * item.numbers);
 
     const decrease = () => {
-        setCount(count - 1);
-        setPrice(price - item.price);
-        dispatch(overwriteOrderItem(item.id, count - 1))
+        if (count > 0) {
+            setCount(count - 1);
+            setPrice(price - item.price);
+            dispatch(overwriteOrderItem(item.id, count - 1))
+        }
     }
     
     const increase = () => {

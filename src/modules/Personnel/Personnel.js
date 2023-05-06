@@ -34,7 +34,15 @@ export default function Personnel() {
       <Button
         onClick={handleClickOpen}
         variant='contained'
-        style={{ position: 'fixed', top: 100, width: 80, height: 80, right: 40, fontSize: 10, borderRadius: 50 + '%' }}
+        style={{
+          position: 'fixed',
+          top: 100,
+          width: 80,
+          height: 80,
+          left: 40,
+          fontSize: 10,
+          borderRadius: 50 + '%',
+        }}
       >
         Додати працівника
       </Button>

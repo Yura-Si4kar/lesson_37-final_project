@@ -46,22 +46,32 @@ export default function DialogWindow({ open, handleClose }) {
   return (
     <Dialog
       open={open}
-      style={{position: 'fixed', bottom: 50, right: 28}}
+      style={{position: 'fixed', bottom: 50, right: 28, width: '100%'}}
       >
       <DialogTitle style={{ display: 'flex', justifyContent: 'space-between' }} id="draggable-dialog-title">
         <Typography variant='span'>Замовлення</Typography>
         <CloseIcon style={{ cursor: 'pointer' }} onClick={handleClose} />
       </DialogTitle>
-      <DialogContent>
-        <Box sx={{ flexGrow: 1, width: 550}}>
-          <Grid container spacing={2}>
-              <Grid item xs={12} md={12}>
+      <DialogContent sx={{ flexGrow: 1, maxWidth: {
+          xs: '100%',
+      }} }>
+        <Box sx={{ flexGrow: 1, maxWidth: {
+              xs: '100%',
+          }}}>
+          <Grid container sx={{
+            width: {
+              xs: '100%',
+              sm: '400px',
+              md: '500px',
+            }
+          }}>
+            <Grid item xs={12}>
               <Demo>
                   <List>
                   {list.map((item) => <OrderListItem key={item.id} item={item}/>)}
                   </List>
               </Demo>
-              </Grid>
+            </Grid>
           </Grid>
           <Typography paragraph style={{
               textAlign: 'right'

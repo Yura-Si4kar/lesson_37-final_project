@@ -23,7 +23,9 @@ export default function MenuListByCategories() {
           <Typography
             variant='h1'
             style={{
-              fontSize: '25px'
+              fontWeight: 700,
+              fontSize: '25px',
+              textAlign: 'center'
             }}
           >{params.item.toLocaleUpperCase()}</Typography>
         </Box>

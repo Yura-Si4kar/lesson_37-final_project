@@ -16,12 +16,12 @@ ChartJS.register(
 
 export default function SalesAtTables({sales}) {
   const labels = useSelector(selectTablesList).map((item) => item.name)
-  
+  console.log(labels);
   const getDataSales = () => {
     let salesSum = [];
 
     for (let i = 0; i < labels.length; i++) {
-      salesSum.push(sales.filter((item) => item.table === `table ${i + 1}`).reduce((acc, item) => acc + item.sum, 0))
+      salesSum.push(sales.filter((item) => item.table === labels[i]).reduce((acc, item) => acc + item.sum, 0))
     }
 
     return salesSum;
