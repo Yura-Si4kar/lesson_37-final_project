@@ -59,10 +59,6 @@ export default function TableDialogForm({ open, handleClose }) {
             <Form.Label>Назва столику: </Form.Label>
             <Form.Control type='text' name='name' placeholder="Ім'я" onChange={getInput}/>  
           </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Завантажити фото картки: </Form.Label>
-            <Form.Control type='file' name='img' onChange={getInput}/>  
-          </Form.Group>
           <Typography paragraph className={formState.error ? 'error' : 'hide'}>Wrong! Fill in all fields!</Typography>
         </Form>
       </DialogContent>
