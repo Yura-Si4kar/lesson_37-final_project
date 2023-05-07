@@ -7934,30 +7934,7 @@
       "id": 1,
       "name": "table 1",
       "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdesign-homes.ru%2Fkomnaty%2Fkukhnya-i-stolovaya%2Fservirovka-stola&psig=AOvVaw1DeIH0KCyJOfppjCfO7wo2&ust=1681477956988000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJjyz9b3pv4CFQAAAAAdAAAAABAI",
-      "order": [
-        {
-          "id": "005-kings-carolina-oink-sampler",
-          "type": "foods",
-          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/66752/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
-          "name": "Kings BBQ",
-          "dsc": "Carolina BBQ Oink Sampler",
-          "price": 89,
-          "rate": 5,
-          "country": "Kinston, NC",
-          "numbers": 1
-        },
-        {
-          "id": "texas-monthlys-1-bbq-brisket",
-          "type": "foods",
-          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/131249/texas-monthlys-1-bbq-brisket.1006a061be7acae03992e420fbca995a.png?ixlib=react-9.0.2&auto=format&ar=1%3A1",
-          "name": "Snow's BBQ",
-          "dsc": "Texas Monthly's #1 BBQ Brisket",
-          "price": 199,
-          "rate": 5,
-          "country": "Lexington, TX",
-          "numbers": 1
-        }
-      ]
+      "order": []
     },
     {
       "id": 2,
@@ -8205,6 +8182,55 @@
       ],
       "sum": 221.98,
       "id": 9
+    },
+    {
+      "table": "table 1",
+      "waiter": "",
+      "order": [
+        {
+          "id": "005-kings-carolina-oink-sampler",
+          "type": "foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/66752/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Kings BBQ",
+          "dsc": "Carolina BBQ Oink Sampler",
+          "price": 89,
+          "rate": 5,
+          "country": "Kinston, NC",
+          "numbers": 1
+        },
+        {
+          "id": "texas-monthlys-1-bbq-brisket",
+          "type": "foods",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/131249/texas-monthlys-1-bbq-brisket.1006a061be7acae03992e420fbca995a.png?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "Snow's BBQ",
+          "dsc": "Texas Monthly's #1 BBQ Brisket",
+          "price": 199,
+          "rate": 5,
+          "country": "Lexington, TX",
+          "numbers": 1
+        }
+      ],
+      "sum": 288,
+      "id": 10
+    },
+    {
+      "table": "table 1",
+      "waiter": "Анатолій",
+      "order": [
+        {
+          "id": "ice-cream-choose-your-own-5-pints",
+          "type": "ice-cream",
+          "img": "https://goldbelly.imgix.net/uploads/showcase_media_asset/image/103364/ice-cream-choose-your-own-5-pints.05ed6c9fab612b8e5f0367e87428ebf7.jpg?ixlib=react-9.0.2&auto=format&ar=1%3A1",
+          "name": "The Baked Bear",
+          "dsc": "Ice Cream - Choose Your Own 5 Pints",
+          "price": 99,
+          "rate": 4,
+          "country": "San Diego, CA",
+          "numbers": 1
+        }
+      ],
+      "sum": 99,
+      "id": 11
     }
   ]
 }

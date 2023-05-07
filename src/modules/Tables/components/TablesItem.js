@@ -43,8 +43,10 @@ export default function TablesItem({ table }) {
     }
 
     const toCalculate = () => {
-        calculateТheСlient();
-        setOpen(true);
+        if(waiter) {
+            calculateТheСlient();
+            setOpen(true);    
+        }
     }
 
     function getOrderInfo() {
@@ -142,6 +144,7 @@ export default function TablesItem({ table }) {
                                     <Typography variant='span'>Сума:
                                         {getFullPrice()} $
                                     </Typography>
+                                    <Typography variant='p' className={waiter === '' ? 'error' : 'hide'}>Виберіть офіціанта</Typography>    
                                 </Box>
                                 <Box style={{ display: 'flex', justifyContent: 'space-between' }}>
                                     <Button variant='contained' onClick={handleClose}>Видалити</Button>
