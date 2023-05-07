@@ -1,56 +1,49 @@
-import { Box, Container, List, ListItem } from '@mui/material'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Container, Grid, ListItem, Typography } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
-export default function Сategories() {
+const pages = ['bbqs', 'best', 'breads', 'burgers', 'chocolates', 'desserts', 'drinks', 'fried-chicken', 'ice-cream', 'pizzas', 'porks', 'sandwiches', 'sausages', 'steaks'];
+
+const useStyles = makeStyles((theme) => ({
+  listItemLink: {
+    textDecoration: 'none',
+    width: '100%',
+  },
+  listItem: {
+    height: '150px',
+    backgroundColor: '#121212',
+    borderRadius: '15px',
+    [theme.breakpoints.up('xs')]: {
+      height: '150px',
+    },
+    [theme.breakpoints.up('sm')]: {
+      height: '150px',
+    },
+    [theme.breakpoints.up('md')]: {
+      height: '150px',
+    },
+  },
+  listItemText: {
+    color: 'red',
+  },
+}))
+
+export default function Categories() {
+  const classes = useStyles();
   return (
-    <Container>
-      <Box className='categories'>
-        <List className='categories_list'>
-          <Link to={'bbqs'} style={{textDecoration: 'none'}}>
-            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>bbqs</ListItem>
-          </Link>
-          <Link to={'best'} style={{textDecoration: 'none'}}>
-            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>best-foods</ListItem>
-          </Link>
-          <Link to={'breads'} style={{textDecoration: 'none'}}>
-            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>breads</ListItem>
-          </Link>
-          <Link to={'burgers'} style={{textDecoration: 'none'}}>
-            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>burgers</ListItem>
-          </Link>
-          <Link to={'chocolates'} style={{textDecoration: 'none'}}>
-            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>chocolates</ListItem>
-          </Link>
-          <Link to={'desserts'} style={{textDecoration: 'none'}}>
-            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>desserts</ListItem>
-          </Link>
-          <Link to={'drinks'} style={{textDecoration: 'none'}}>
-            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>drinks</ListItem>
-          </Link>
-          <Link to={'fried-chicken'} style={{textDecoration: 'none'}}>
-            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>fried-chicken</ListItem>
-          </Link>
-          <Link to={'ice-cream'} style={{textDecoration: 'none'}}>
-            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>ice-cream</ListItem>
-          </Link>
-          <Link to={'pizzas'} style={{textDecoration: 'none'}}>
-            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>pizzas</ListItem>
-          </Link>
-          <Link to={'porks'} style={{textDecoration: 'none'}}>
-            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>porks</ListItem>
-          </Link>
-          <Link to={'sandwiches'} style={{textDecoration: 'none'}}>
-            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>sandwiches</ListItem>
-          </Link>
-          <Link to={'sausages'} style={{textDecoration: 'none'}}>
-            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>sausages</ListItem>
-          </Link>
-          <Link to={'steaks'} style={{textDecoration: 'none'}}>
-            <ListItem style={{backgroundColor: '#121212',display: 'flex', justifyContent: 'center'}} className='categories_list-item'>steaks</ListItem>
-          </Link>
-        </List>
-      </Box>
+    <Container style={{paddingTop: '30px'}}>
+      <Grid container spacing={2}>
+        {pages.map((page, index) => (
+          <Grid item xs={6} sm={4} md={3} lg={2} key={index}>
+            <Link to={page} className={classes.listItemLink}>
+              <ListItem className={classes.listItem}>
+                <Typography variant="h5" className={classes.listItemText}>{page}</Typography>
+              </ListItem>
+            </Link>
+          </Grid>
+        ))}
+      </Grid>
     </Container>
   )
 }

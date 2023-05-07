@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import SalesAtTables from './components/SalesAtTables'
 import AmountOfSalesByWaiters from './components/AmountOfSalesByWaiters'
-import { Container } from '@mui/material'
+import { Container, Grid } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { getSalesList } from '../../store/actions/servicesActions'
 import { getTableList } from '../../store/actions/tablesActions'
@@ -20,10 +20,12 @@ export default function Statistics() {
   }, [dispatch])
 
   return (
-    <Container style={{display: 'flex', flexWrap: 'wrap', paddingBottom: 80}}>
+    <Container>
+      <Grid container spacing={2}>
         <SalesAtTables sales={salesList} />
         <AmountOfSalesByWaiters sales={salesList} />
         <WaitersSalary sales={salesList}/>
+      </Grid>
     </Container>
   )
 }

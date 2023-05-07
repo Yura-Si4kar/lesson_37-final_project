@@ -33,20 +33,29 @@ export default function DialogWindow({ open, handleClose }) {
       name: table,
     }
 
-    dispatch(tieOrder(order))
-    dispatch(clearStorage())
-    handleClose();
+    if (table) {
+      dispatch(tieOrder(order))
+      dispatch(clearStorage())
+      handleClose();  
+    }
    }
 
    function onCansel() {
     dispatch(clearStorage())
     handleClose();
-   }
+  }
 
   return (
     <Dialog
       open={open}
-      style={{position: 'fixed', bottom: 50, right: 28, width: '100%'}}
+      style={{ position: 'fixed', bottom: 50, right: 28 }}
+      sx={{
+        minWidth: {
+          xs: '320px',
+          sm: '375px',
+          md: '100%',
+        }
+      }}
       >
       <DialogTitle style={{ display: 'flex', justifyContent: 'space-between' }} id="draggable-dialog-title">
         <Typography variant='span'>Замовлення</Typography>
@@ -59,7 +68,7 @@ export default function DialogWindow({ open, handleClose }) {
               xs: '100%',
           }}}>
           <Grid container sx={{
-            width: {
+            minWidth: {
               xs: '100%',
               sm: '400px',
               md: '500px',
@@ -77,6 +86,7 @@ export default function DialogWindow({ open, handleClose }) {
               textAlign: 'right'
           }}>Загальна сума: {getOrdersSum() + ' $'}</Typography>
           <Box>
+            <Typography variant='h6' className={table === '' ? 'error' : 'hide'}>Стіл не вибрано!</Typography>
             <FormControl sx={{ m: 1, minWidth: 120 }}>
                 <InputLabel id="demo-simple-select-helper-label">Стіл №</InputLabel>
                 <Select

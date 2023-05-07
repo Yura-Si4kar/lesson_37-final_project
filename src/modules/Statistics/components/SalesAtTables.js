@@ -1,9 +1,10 @@
 import React from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { Box, Typography } from '@mui/material';
+import { Grid, Typography, useMediaQuery } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { selectTablesList } from '../../../store/selectors/selectors';
+import { makeStyles } from '@mui/styles';
 
 ChartJS.register(
   CategoryScale,
@@ -14,9 +15,20 @@ ChartJS.register(
   Legend
 );
 
+const useStyles = makeStyles(() => ({
+  chartContainer: {
+    margin: '20px auto',
+    maxWidth: 600,
+  },
+  chartTitle: {
+    marginBottom: 10,
+  },
+}));
+
 export default function SalesAtTables({sales}) {
-  const labels = useSelector(selectTablesList).map((item) => item.name)
-  console.log(labels);
+  const labels = useSelector(selectTablesList).map((item) => item.name);
+  const classes = useStyles();
+  const smallScreen = useMediaQuery('(max-width:600px)');
   const getDataSales = () => {
     let salesSum = [];
 
@@ -49,9 +61,11 @@ export default function SalesAtTables({sales}) {
     ],
   };
   return (
-    <Box style={{ width: 100 + '%', height: 500, marginBottom: 100, textAlign: 'center' }}>
-      <Typography variant='h2'>Дохід від столиків</Typography>
-      <Bar options={options} data={data} />
-    </Box>
+    <Grid item xs={12} className={classes.chartContainer}>
+      <Typography variant={smallScreen ? 'h5' : 'h4'} className={classes.chartTitle} sx={{ textAlign: { xs: 'center' } }}>
+        Дохід від столиків
+      </Typography>
+      <Bar options={options} data={data} style={{maxWidth: '100%'}} />
+    </Grid>
   )
 }

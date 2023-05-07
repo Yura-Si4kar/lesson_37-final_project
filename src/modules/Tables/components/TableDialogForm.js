@@ -63,7 +63,7 @@ export default function TableDialogForm({ open, handleClose }) {
             <Form.Label>Завантажити фото картки: </Form.Label>
             <Form.Control type='file' name='img' onChange={getInput}/>  
           </Form.Group>
-          <Typography paragraph className={'error' + (formState.error ? ' show' : '')}>Wrong! Fill in all fields!</Typography>
+          <Typography paragraph className={formState.error ? 'error' : 'hide'}>Wrong! Fill in all fields!</Typography>
         </Form>
       </DialogContent>
       <DialogActions>

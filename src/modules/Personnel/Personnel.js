@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectPersonnelList } from '../../store/selectors/selectors'
-import { Button, Container, Grid } from '@mui/material';
+import { Button, Container, Grid, useMediaQuery } from '@mui/material';
 import PersonnelItem from './components/PersonnelItem';
 import PersonnelDialogForm from './components/PersonnelDialogForm';
 import { getPersonnelList } from '../../store/actions/personnelActions';
@@ -23,6 +23,8 @@ export default function Personnel() {
     setOpen(false);
   };
 
+  const smallScreen = useMediaQuery('(max-width: 600px');
+
   return (
     <Container style={{ display: 'flex', flexWrap: 'wrap' }}>
       <Grid container spacing={1} style={{marginTop: 20}}>
@@ -34,17 +36,32 @@ export default function Personnel() {
       <Button
         onClick={handleClickOpen}
         variant='contained'
-        style={{
-          position: 'fixed',
-          top: 100,
-          width: 80,
-          height: 80,
-          left: 40,
-          fontSize: 10,
-          borderRadius: 50 + '%',
-        }}
+          sx={{
+            position: 'absolute',
+            backgroundColor: '#121212',
+            fontSize: {
+              xs: 24,
+              sm: 16
+            },
+            padding: 0,
+            top: {
+              xs: 4,
+              sm: 6
+            },
+            right: {
+              xs: 5,
+              sm: 30
+            },
+            width: {
+              xs: 30,
+              sm: 120,
+            },
+            color: {
+              xs: 'red',
+            },
+          }}
       >
-        Додати працівника
+        {smallScreen ? '+' : 'Додати працівника'}
       </Button>
     </Container>
   )

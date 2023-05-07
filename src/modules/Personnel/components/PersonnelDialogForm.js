@@ -63,13 +63,13 @@ export default function PersonnelDialogForm({ open, handleClose }) {
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
             <Form.Label>Посада працівника: </Form.Label>
-            <Form.Control type='text' name='position' placeholder="Посада"onChange={getInput}/>  
+            <Form.Control type='text' name='position' placeholder="нвзва посади"onChange={getInput}/>  
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput3">
             <Form.Label>Оплата: </Form.Label>
-            <Form.Control type='text' name='salary' placeholder="Оплата"onChange={getInput}/>  
+            <Form.Control type='text' name='salary' placeholder="відсоток від продажу"onChange={getInput}/>  
           </Form.Group>
-          <Typography paragraph className={'error' + (formState.error ? ' show' : '')}>Wrong! Fill in all fields!</Typography>
+          <Typography paragraph className={formState.error ? 'error' : 'hide'}>Wrong! Fill in all fields!</Typography>
         </Form>
       </DialogContent>
       <DialogActions>

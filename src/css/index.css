@@ -27,11 +27,6 @@ code {
   margin: 0 30px;
 }
 
-.categories {
-  display: flex;
-  justify-content: space-between;
-}
-
 .dishes-list {
   display: flex;
   flex-wrap: wrap;
@@ -58,39 +53,11 @@ code {
   max-width: 100%;
 }
 
-.categories_list {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.categories-list {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -20px;
-}
-
-.categories_list-item {
-  width: 150px !important;
-  height: 150px;
-  border: 1px solid black;
-  border-radius: 15px;
-  margin: 20px;
-  color: red;
-  font-size: 20px;
-  font-weight: 600;
-  text-align: center;
-}
-
-.categories_list-item a {
-  text-decoration: underline;
-}
-
 .error {
   color: red;
-  display: none;
+  display: block;
 }
 
-.show {
-  display: block;
+.hide {
+  display: none;
 }

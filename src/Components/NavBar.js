@@ -16,6 +16,7 @@ import { mdiFood } from '@mdi/js';
 
 const useStyles = makeStyles(() => ({
   navBar: {
+    position: 'relative',
     backgroundColor: '#121212 !important',
   },
   mobileMenu: {
@@ -95,7 +96,7 @@ export default function ResponsiveAppBar() {
               horizontal
               color="red"
             />
-            Трапезна
+            Loft
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -157,7 +158,7 @@ export default function ResponsiveAppBar() {
               color="red"
               style={{marginRight: 20}}
             />
-            Трапезна
+            Loft
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Button

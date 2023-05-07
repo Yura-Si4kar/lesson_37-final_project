@@ -6,6 +6,7 @@ import MenuListItem from '../components/menu/MenuListItem';
 import OrderPopupBtn from '../components/Order/PopupBtn/OrderPopupBtn';
 import { useParams } from 'react-router-dom';
 import { getMenuList, getOrderList } from '../../../store/actions/servicesActions';
+import { Box } from '@mui/material';
 
 export default function MenuList() {
   const dispatch = useDispatch();
@@ -20,12 +21,12 @@ export default function MenuList() {
   return (
     <>
       <Container maxWidth='1300px'>
-        <div className='dishes-list'>
+        <Box style={{display: 'flex', flexWrap: 'wrap', justiryContent: 'center', margin: '0 auto'}}>
           {list.map((item) => <MenuListItem
             key={item.id}
             item={item}
           />)}
-        </div>
+        </Box>
       </Container>
       <OrderPopupBtn/>
     </>

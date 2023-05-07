@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Container, Grid } from '@mui/material';
+import { Button, Container, Grid, useMediaQuery } from '@mui/material';
 import { selectTablesList } from '../../store/selectors/selectors';
 import TablesItem from './components/TablesItem';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,6 +15,8 @@ export default function Tables() {
   const handleOpen = () => {
     setOpen(true);
   }
+
+  const smallScreen = useMediaQuery('(max-width: 600px');
 
   useEffect(() => {
     dispatch(getTableList('tables'));
@@ -36,9 +38,32 @@ export default function Tables() {
       <Button
           onClick={handleOpen}
           variant='contained'
-          style={{ position: 'fixed', top: 100, width: 80, height: 80, left: 40, fontSize: 12, borderRadius: 50 + '%' }}
+          sx={{
+            position: 'absolute',
+            backgroundColor: '#121212',
+            padding: 0,
+            fontSize: {
+              xs: 24,
+              sm: 16
+            },
+            top: {
+              xs: 4,
+              sm: 6
+            },
+            right: {
+              xs: 5,
+              sm: 30
+            },
+            width: {
+              xs: 30,
+              md: 50
+            },
+            color: {
+              xs: 'red',
+            },
+          }}
       >
-          Додати столик
+          {smallScreen ? '+' : 'Додати столик'}
       </Button>
     </Container>
   );

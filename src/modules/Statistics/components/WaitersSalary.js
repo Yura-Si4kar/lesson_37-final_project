@@ -1,15 +1,27 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import { Box, Typography } from '@mui/material';
+import { Grid, Typography, useMediaQuery } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { selectPersonnelList } from '../../../store/selectors/selectors';
+import { makeStyles } from '@mui/styles';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+const useStyles = makeStyles(() => ({
+  chartContainer: {
+    margin: '20px auto',
+    maxWidth: 600,
+  },
+  chartTitle: {
+    marginBottom: 10,
+  },
+}));
+
 export default function WaitersSalary({ sales }) {
     const waiters = useSelector(selectPersonnelList);
-
+    const classes = useStyles();
+    const smallScreen = useMediaQuery('(max-width:600px)');
     const calculateSalary = () => {
         let salary = [];
 
@@ -62,9 +74,11 @@ export default function WaitersSalary({ sales }) {
     };
 
     return (
-        <Box style={{ width: 50 + '%', height: 400 }}>
-            <Typography variant='h3'>Активність працівників</Typography>
-            <Doughnut data={data} />
-        </Box>
+        <Grid xs={12} sm={6} item className={classes.chartContainer}>
+            <Typography variant={smallScreen ? 'h5' : 'h4'} className={classes.chartTitle} sx={{ textAlign: { xs: 'center' } }}>
+                Активність працівників
+            </Typography>
+            <Doughnut data={data} style={{maxWidth: '100%'}}/>
+        </Grid>
     )
 }
